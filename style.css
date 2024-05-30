@@ -5,7 +5,7 @@
 html{
   font-size: 16px;
   font-family:'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
-  color: #008B9C;
+  color: #0080BB;
   background-color: #e4e4e4;
 }
 
@@ -85,7 +85,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: #008B9C;
+	color: #0080BB;
 }
 
 /* ヘッダー */
