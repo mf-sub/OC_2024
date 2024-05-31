@@ -20,7 +20,7 @@ body{
   font: 1vw; /*HTMLタグで適用した文字サイズクを基準とした比率で文字サイズを設定する。この場合、1rem=14px*/
   line-height: 1.8; /*行間指定*/
   letter-spacing: 0.08em;/*字間指定*/
-  background-color: #fff;
+  background-color: #dfdfdf;
   background-size: 100% auto,auto ;
 }
 main{
@@ -80,10 +80,12 @@ body
 }
 
 /* 個々のコンテンツのスタイル */
-.content {
+.content
+{
 	position: absolute;
     margin: 20px 0;
 	text-align: center;
+	font-size: 50px;
 }
 
 .content1
@@ -92,7 +94,7 @@ body
 }
 .content2
 {
-	top:30%;
+	top:22%;
 }
 .content3
 {
@@ -110,18 +112,28 @@ body
 
 /* ビデオコンテナの固定スタイル */
 .video-container {
-    position: fixed;
-    top: 0px;
-	inset: 0;
 	margin: 0 auto;
-    /* left: 10px; */
     z-index: -1; /* 常に前面に表示 */
 }
 
-video
-{
-	width: 100%;
-	height: auto;
+video {
+	position: fixed;
+	bottom: 0;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 600px) {
+	video
+	{
+		max-width: 500px;
+		height: auto;
+		width: 100%;
+	}
+
 }
 
 .margin-test
