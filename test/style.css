@@ -1,0 +1,271 @@
+/*↓↓固定↓↓*/
+/* Noto sansフォント用 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
+
+html{
+  font-size: 16px;
+  font-family:'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
+  color: #0080BB;
+  background-color: #e4e4e4;
+}
+
+*{  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font: 1vw; /*HTMLタグで適用した文字サイズクを基準とした比率で文字サイズを設定する。この場合、1rem=14px*/
+  line-height: 1.8; /*行間指定*/
+  letter-spacing: 0.08em;/*字間指定*/
+  background-color: #fff;
+  background-size: 100% auto,auto ;
+}
+main{
+  align-items:center ;
+ /* width: 1000px;*/
+  margin: 0 auto;/*コンテンツ部分を真ん中に持ってくるための指定。widthを指定した上で、margin:0 auto を指定する。bodyには指定しない。意味ないから*/
+
+}
+
+img {vertical-align: bottom; /*画像の上下方向の隙間を無くすために指定*/
+  width: 100%;
+  height: auto;
+}
+
+li{
+list-style:none; /*箇条書きのマーカー（黒っぽち）を消す*/
+}
+
+ul{
+margin: 0;
+padding: 0;
+}
+
+div{
+  display: block;
+}
+
+/*↑↑ここまで固定↑↑*/
+/* 画面幅固定 */
+html{
+	height: 100%;
+}
+body
+{
+	position: relative;
+	overflow-x: hidden;
+	max-width: 100%;
+	min-width: 320px;
+	min-height: 100%;
+	margin: 0 auto;
+}
+@media screen and (min-width: 600px) {
+	body
+	{
+		width: 500px;
+	}
+}
+
+h1{
+	font-size: 40px;
+}
+
+h2{
+	font-size: 28px;
+}
+h3{
+	font-size: 20px;
+}
+
+a {
+	/* text-decoration: none; */
+	color:inherit
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #0080BB;
+}
+
+/* ヘッダー */
+.header {
+	width: 100px;
+	height: 60px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 999;
+  }
+
+
+
+  .header__inner {
+	padding-right: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	height: inherit;
+	position: relative;
+  }
+
+
+  /* ヘッダーのナビ部分 */
+
+  .header__nav {
+	position: absolute;
+	right: 0;
+	/* left: 0; */
+	top: 0;
+	width: 180px;
+	height: 100vh;
+	transform: translateX(100%);
+	transition: ease .4s;
+	display: flex;
+  }
+
+
+
+  @media screen and (min-width: 800px) {
+	.header__nav {
+	  transform: initial;
+	  background-color: inherit;
+	  height: inherit;
+	}
+  }
+
+  .nav__items {
+	margin: 80px 20px auto auto;
+  }
+
+
+
+  .nav-items__item {
+	cursor: pointer;
+	position: relative;
+	height: 100%;
+	display: flex;
+	align-items: center;
+
+  }
+
+
+  /* ナビのリンク */
+  .nav-items__item a {
+	text-decoration: none;
+	color: #0080BB;
+	width: 100%;
+	display: block;
+	text-align: right;
+	font-size: 18px;
+	margin-bottom: 24px;
+  }
+  .nav-items__item a:hover {
+	text-decoration: underline;
+}
+
+
+  .nav-items__item:last-child a {
+	margin-bottom: 0;
+  }
+
+
+  /* ハンバーガーメニュー */
+  .header__hamburger {
+	width: 40px;
+	height: 100%;
+  }
+
+  .hamburger {
+	background-color: transparent;
+	border-color: transparent;
+	z-index: 9999;
+	cursor: pointer;
+  }
+  @media screen and (min-width: 800px) {
+	.header__hamburger {
+		display: none;
+	  }
+
+  }
+
+  /* ハンバーガーメニューの線 */
+  .hamburger span {
+	width: 100%;
+	height: 3px;
+	background-color: #0080BB;
+	position: relative;
+	transition: ease .4s;
+	display: block;
+  }
+
+  .hamburger span:nth-child(1) {
+	top: 0;
+  }
+
+  .hamburger span:nth-child(2) {
+	margin: 4px 0;
+  }
+
+
+  .hamburger span:nth-child(3) {
+	top: 0;
+  }
+
+
+  /* ハンバーガーメニュークリック後のスタイル */
+  .header__nav.active {
+	transform: translateX(0);
+  }
+
+  .hamburger.active span:nth-child(1) {
+	top: 5px;
+	transform: rotate(45deg);
+  }
+
+
+  .hamburger.active span:nth-child(2) {
+	opacity: 0;
+  }
+
+
+  .hamburger.active span:nth-child(3) {
+	top: -13px;
+	transform: rotate(-45deg);
+  }
+
+
+  .container{
+	text-align: center;
+  }
+
+
+/* メインビジュ*/
+
+.mainvisual img{
+	margin-top: 20px;
+	width: 100%;
+	height: auto;
+	z-index: 100;
+
+  }
+
+/* comming soon */
+.container
+{
+	text-align: center;
+}
+
+.contents
+{
+	padding: 40px 0;
+}
+.contents h2, h1
+{
+	font-weight: 400;
+}
+
+.coming-soon
+{
+	font-family:Helvetica ,"Helvetica Neue", sans-serif, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans";
+}
