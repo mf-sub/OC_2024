@@ -1,12 +1,12 @@
 /*↓↓固定↓↓*/
 /* Noto sansフォント用 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
 html{
   font-size: 16px;
-  font-family:'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
+  font-family:"Noto Sans JP",'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
   color: #0080BB;
-  background-color: #e4e4e4;
+  background-color: #fff;
 }
 
 *{  box-sizing: border-box;
@@ -55,7 +55,7 @@ body
 {
 	position: relative;
 	overflow-x: hidden;
-	max-width: 100%;
+	max-width: 100%ω;
 	min-width: 320px;
 	min-height: 100%;
 	margin: 0 auto;
