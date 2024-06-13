@@ -276,7 +276,7 @@ footer ul img{
     z-index: -1; /* 常に前面に表示 */
 }
 
-video{
+.video-fix{
 	position: fixed;
 	bottom: 0;
     overflow-x: hidden;
@@ -296,7 +296,7 @@ video{
 	z-index: 1;
 }
 @media screen and (min-width: 600px) {
-	video, .fix
+	.video-fix, .fix
 	{
 		width: 500px;
 		height: auto;
@@ -398,4 +398,54 @@ video{
 	line-height: 21px; /* 175% */
 	letter-spacing: 1.56px;
 	padding: 20px 35px;
+}
+
+/* イベント */
+.major-icons
+{
+	padding-bottom: 24px;
+}
+.major-icon
+{
+	display: flex;
+	padding-top: 23px;
+	margin: 0 24px;
+	justify-content: center;
+}
+.major-icon li
+{
+	width: 100px;
+	margin: 0 13px;
+}
+
+.major-icon_top
+{
+	width: 70px;
+	height: auto;
+	padding-bottom: 4px;
+}
+
+.major-icon_text
+{
+	text-align: center;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: 1px;
+}
+
+/* Thema */
+.thema .sub-title
+{
+	padding-left: 16px;
+	font-size: 23px;
+	line-height: normal;
+	letter-spacing: -1.65px;
+}
+
+.thema .top-text
+{
+	letter-spacing: none;
+	letter-spacing: 1.2px;
 }
