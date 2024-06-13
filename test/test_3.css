@@ -58,7 +58,7 @@ body
 	position: relative;
 	overflow-x: hidden;
 	max-width: 100%;
-	min-width: 320px;
+	min-width: 390px;
 	min-height: 100%;
 	margin: 0 auto;
 }
@@ -324,33 +324,6 @@ video{
 	font-size: 50px;
 }
 
-.content1
-{
-	top:15%;
-}
-.content2
-{
-	top:22%;
-}
-.content3
-{
-	top:59%;
-}
-.content4
-{
-	top:78%;
-}
-
-.content5
-{
-	top:100%;
-}
-
-
-.margin-test
-{
-	height: 7000px;
-}
 
 
 /* コンテンツ */
@@ -406,18 +379,23 @@ video{
 
 .access
 {
-	padding: 105px 0 108px 53px;
+	padding: 104px 0;
+	padding-right:133px;
 }
 
 
 /* abouts */
 .about, .event, .thema
 {
-	padding-top: 110px;
+	padding-top: 115px;
+	padding-bottom: 45px;
 }
 
 .about .top-text, .thema .top-text
 {
-
+	font-size: 12px;
+	text-align: justify;
+	line-height: 21px; /* 175% */
+	letter-spacing: 1.56px;
 	padding: 20px 35px;
 }
