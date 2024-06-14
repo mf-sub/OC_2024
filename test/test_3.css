@@ -7,7 +7,7 @@ html{
   font-size: 12px;
   font-family:"Noto Sans JP",'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
   color: #0080BB;
-
+  background-color: #dfdfdf;
 }
 
 
@@ -20,7 +20,7 @@ body{
   font: 1vw; /*HTMLタグで適用した文字サイズクを基準とした比率で文字サイズを設定する。この場合、1rem=14px*/
   line-height: 1.8; /*行間指定*/
   letter-spacing: 0.08em;/*字間指定*/
-  background-color: #dfdfdf;
+  /* background-color: #fff; */
   background-size: 100% auto,auto ;
 }
 main{
@@ -276,7 +276,7 @@ footer ul img{
     z-index: -1; /* 常に前面に表示 */
 }
 
-.video-fix{
+video{
 	position: fixed;
 	bottom: 0;
     overflow-x: hidden;
@@ -296,7 +296,7 @@ footer ul img{
 	z-index: 1;
 }
 @media screen and (min-width: 600px) {
-	.video-fix, .fix
+	video, .fix
 	{
 		width: 500px;
 		height: auto;
@@ -438,10 +438,15 @@ footer ul img{
 /* Thema */
 .thema .sub-title
 {
+	color: #0080BB;
 	padding-left: 16px;
 	font-size: 23px;
 	line-height: normal;
 	letter-spacing: -1.65px;
+}
+.thema-red
+{
+	color: #EA0029;
 }
 
 .thema .top-text
@@ -449,3 +454,31 @@ footer ul img{
 	letter-spacing: none;
 	letter-spacing: 1.2px;
 }
+
+.major-icon li:hover{
+    animation: stepsline 1s steps(3) forwards;
+	/*stepsline→アニメーション名
+    1s→アニメーションをする時間
+    step→（）の中には、アニメーション制作コマ数-1の値を入れる（例：4コマ-1コマ=3コマ）
+    forwards→最後の形を維持*/
+}
+
+@keyframes stepsline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -300px 0;/*アニメーション制作コマ数から1コマ分引いた横幅を指定。
+（例：今回は1フレーム横幅100pxで制作しているので全体の400px-100px=300px⇒-300px）を指定。*/
+  }
+}
+
+/* メインビジュ*/
+
+.mainvisual img{
+	margin-top: 20px;
+	width: 100%;
+	height: auto;
+	z-index: 100;
+
+  }

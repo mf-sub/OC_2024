@@ -1,6 +1,24 @@
+// ハンバーガーメニュー
+const ham = document.querySelector('#js-hamburger');
+const nav = document.querySelector('#js-nav');
+
+
+document.getElementById('js-hamburger').addEventListener('click',function() {
+document.getElementById('js-nav').classList.toggle('active');
+});
+
+// $('a[href*="test_3.html#"]').click(function () {
+// 	document.getElementById('js-nav').classList.remove('active');
+// 	var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+// 	var pos = $(elmHash).offset().top - 30;  //idの上部の距離を取得
+// 	$('html, body').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
+// 	return false;
+// });
+
+
 // ウィンドウがスクロールされるたびにこの関数が呼び出される
 window.onscroll = function() {
-    var video = document.getElementById('fixed-video');
+    var video = document.getElementById('video-fix');
 
     // ビデオの現在の再生位置を取得
     var currentTime = video.currentTime;
@@ -24,19 +42,4 @@ window.onscroll = function() {
 //     this.play();
 // });
 
-// ハンバーガーメニュー
-const ham = document.querySelector('#js-hamburger');
-const nav = document.querySelector('#js-nav');
 
-
-document.getElementById('js-hamburger').addEventListener('click',function() {
-document.getElementById('js-nav').classList.toggle('active');
-});
-
-$('a[href*="index.html#"]').click(function () {
-	document.getElementById('js-nav').classList.remove('active');
-	var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
-	var pos = $(elmHash).offset().top - 30;  //idの上部の距離を取得
-	$('html, body').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
-	return false;
-});
