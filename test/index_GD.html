@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スクロールに合わせて再生する映像</title>
-    <link rel="stylesheet" href="test_3.css">
+    <title>東京造形大学オープンキャンパス2024 | この先、グラフィックデザイン</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<!--ヘッダー-->
@@ -12,12 +12,12 @@
 		<div class="header__inner">
 			<nav class="header__nav nav" id="js-nav">
 				<ul class="nav__items nav-items" id="rink">
-					<li class="nav-items__item" ><a href="test_3.html#top">TOP</a></li>
-					<li class="nav-items__item" ><a href="test_3.html#thema">THEME</a></li>
-					<li class="nav-items__item" ><a href="test_3.html#event">EVENT</a></li>
-					<li class="nav-items__item" ><a href="test_3.html#opencampus">OPENCAMPUS</a></li>
-					<li class="nav-items__item" ><a href="test_3.html#access">ACCESS</a></li>
-					<li class="nav-items__item" ><a href="test_3.html#ask">ASK</a></li>
+					<li class="nav-items__item" ><a href="index.html#top">TOP</a></li>
+					<li class="nav-items__item" ><a href="index.html#thema">THEME</a></li>
+					<li class="nav-items__item" ><a href="index.html#event">EVENT</a></li>
+					<li class="nav-items__item" ><a href="index.html#opencampus">OPENCAMPUS</a></li>
+					<li class="nav-items__item" ><a href="index.html#access">ACCESS</a></li>
+					<li class="nav-items__item" ><a href="index.html#ask">ASK</a></li>
 				</ul>
 			</nav>
 			<button class="header__hamburger hamburger" id="js-hamburger">
@@ -58,11 +58,37 @@
    <!-- 固定されたビデオ -->
    <div class="video-container">
 	<!-- <img src="images/親ページ.png" alt="メインビジュアル" class="fix"> -->
-	<video id="video-fix" muted>
+	<!-- <video id="video-fix" muted> -->
 		<!-- <source src="images/main.mov" type="video/mp4"> -->
-		<source src="images/main_line.mp4" type="video/mp4">
-		あなたのブラウザはHTML5ビデオをサポートしていません。
-	</video>
+		<!-- <source src="images/main_line.mp4" type="video/mp4">
+		あなたのブラウザはHTML5ビデオをサポートしていません。 -->
+	<!-- </video> -->
+	</div>
+
+	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" fill="none">
+		<path d="M22 12.9843L12 3L2 12.9843" stroke="#EA6F85" stroke-width="4"/>
+	</svg>
+
+	<div class="ko gd-1 center-content" id="gd-1">
+		<div class="gd-1 center-content_inner">
+			<h3 class="ko-sub-title">来場者プレゼント。
+				<br>何が出るのかはお楽しみ！</h3>
+			<p class="ko-text">ガチャガチャを回して、グラフィックデザイン専攻領域の教員がデザインしたオリジナル缶バッジやグッズをゲットしよう！
+			<div class="ko-enn en-font">
+				<div class="ko-enn__inner-1">
+					<p class="ko-enn__date">7.13 Sat</p>
+					<p class="ko-enn__time">①10:00-12:00
+						<br>②13:00-16:00</p>
+				</div>
+				<div class="ko-enn__inner-2">
+					<p class="ko-enn__date">7.14 Sun</p>
+					<p class="ko-enn__time">10:00-12:00
+						<br>13:00-16:00</p>
+				</div>
+			</div>
+			<p class="ko-place radius-content en-font">PLACE 8-205,206</p>
+			<h3 class="ko-title radius-content">グラフィックガチャガチャ</h3>
+		</div>
 	</div>
 
 	<div class="ask center-content" id="ask">
@@ -184,6 +210,6 @@
 		<img src="images/mainvisual_completed.png" alt="SPメインビジュ" class="sp">
 	</div>
 </main>
-    <script src="test_3.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

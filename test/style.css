@@ -1,13 +1,15 @@
-/*↓↓固定↓↓*/
+/* 全体のスタイルをリセット */
+/* Noto sansフォント用 */
 /* Noto sansフォント用 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
 html{
-  font-size: 16px;
-  font-family:'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
+  font-size: 12px;
+  font-family:"Noto Sans JP",'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
   color: #0080BB;
-  background-color: #e4e4e4;
+  background-color: #dfdfdf;
 }
+
 
 *{  box-sizing: border-box;
   margin: 0;
@@ -18,7 +20,7 @@ body{
   font: 1vw; /*HTMLタグで適用した文字サイズクを基準とした比率で文字サイズを設定する。この場合、1rem=14px*/
   line-height: 1.8; /*行間指定*/
   letter-spacing: 0.08em;/*字間指定*/
-  background-color: #fff;
+  /* background-color: #fff; */
   background-size: 100% auto,auto ;
 }
 main{
@@ -56,7 +58,7 @@ body
 	position: relative;
 	overflow-x: hidden;
 	max-width: 100%;
-	min-width: 320px;
+	min-width: 390px;
 	min-height: 100%;
 	margin: 0 auto;
 }
@@ -67,26 +69,11 @@ body
 	}
 }
 
-h1{
-	font-size: 40px;
+.en-font
+{
+	font-family:Helvetica ,"Helvetica Neue", sans-serif, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans";
 }
 
-h2{
-	font-size: 28px;
-}
-h3{
-	font-size: 20px;
-}
-
-a {
-	/* text-decoration: none; */
-	color:inherit
-}
-
-a:hover {
-	text-decoration: underline;
-	color: #0080BB;
-}
 
 /* ヘッダー */
 .header {
@@ -98,8 +85,6 @@ a:hover {
 	z-index: 999;
   }
 
-
-
   .header__inner {
 	padding-right: 15px;
 	display: flex;
@@ -108,7 +93,6 @@ a:hover {
 	height: inherit;
 	position: relative;
   }
-
 
   /* ヘッダーのナビ部分 */
 
@@ -240,6 +224,237 @@ a:hover {
   }
 
 
+/* フッター */
+footer
+{
+	text-align: center;
+	padding-bottom: 100px;
+}
+footer div{
+	margin: 0 auto;
+}
+
+.tzu-logo
+{
+	margin-top: 52px;
+	width: 250px;
+	height: auto;
+}
+
+footer ul img{
+	width: 33px;
+	height: auto;
+}
+
+.sns_rink{
+	padding: 50px 0;
+	width: 170px;
+	font-size: 10px;
+	font-weight: 400;
+	line-height: 19px;
+}
+
+.sns {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.zokei li {
+	padding: 8px 0 17px 0;
+	width: calc(100% * (550 / 1080)) ;
+
+}
+.oc li {
+	padding-top: 8px;
+	width: 79px ;
+}
+
+
+/* ビデオコンテナの固定スタイル */
+.video-container {
+	margin: 0 auto;
+    z-index: -1; /* 常に前面に表示 */
+}
+
+video{
+	position: fixed;
+	bottom: 0;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100%;
+    margin: 0 auto;
+	z-index: -1;
+}
+.fix{
+	position: absolute;
+	top: 0;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 320px;
+	opacity: 0.33;
+	z-index: 1;
+}
+@media screen and (min-width: 600px) {
+	video, .fix
+	{
+		width: 500px;
+		height: auto;
+		width: 100%;
+	}
+}
+
+
+/* スクロールコンテンツのスタイル */
+.scroll-content {
+	position: relative;
+    height: 5000px; /* コンテンツの高さを3倍に設定（スクロール用） */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+
+/* 個々のコンテンツのスタイル */
+.content
+{
+	position: absolute;
+    margin: 20px 0;
+	text-align: center;
+	font-size: 50px;
+}
+
+
+
+/* コンテンツ */
+.center-content_inner
+{
+	text-align: center;
+}
+
+.title
+{
+	color: #EA0029;
+	font-size: 36px;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.sub-title
+{
+	color: #EA0029;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.top-text
+{
+	font-size: 10px;
+	font-weight: 500;
+	line-height: 19px; /* 190% */
+	letter-spacing: 1px;
+	padding: 5px 0 10px 0;
+}
+
+.radius-content
+{
+	display: inline-block;
+	padding: 6px 13px;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border-radius: 25px;
+	border: 2px solid #0080BB;
+}
+
+
+/* ASK 固定値（px） / 基準幅（px） * 100vw*/
+.ask
+{
+	padding-top: 178px;
+	padding-left: 158px;
+}
+
+.access
+{
+	padding: 104px 0;
+	padding-right:133px;
+}
+
+
+/* abouts */
+.about, .event, .thema
+{
+	padding-top: 115px;
+	padding-bottom: 45px;
+}
+
+.about .top-text, .thema .top-text
+{
+	font-size: 12px;
+	text-align: justify;
+	line-height: 21px; /* 175% */
+	letter-spacing: 1.56px;
+	padding: 20px 35px;
+}
+
+/* イベント */
+.major-icons
+{
+	padding-bottom: 24px;
+}
+.major-icon
+{
+	display: flex;
+	padding-top: 23px;
+	margin: 0 24px;
+	justify-content: center;
+}
+.major-icon li
+{
+	width: 100px;
+	margin: 0 13px;
+}
+
+.major-icon_top
+{
+	width: 70px;
+	height: auto;
+	padding-bottom: 4px;
+}
+
+.major-icon_text
+{
+	text-align: center;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: 1px;
+}
+
+/* Thema */
+.thema .sub-title
+{
+	color: #0080BB;
+	padding-left: 16px;
+	font-size: 23px;
+	line-height: normal;
+	letter-spacing: -1.65px;
+}
+.thema-red
+{
+	color: #EA0029;
+}
+
+.thema .top-text
+{
+	letter-spacing: none;
+	letter-spacing: 1.2px;
+}
+
 /* メインビジュ*/
 
 .mainvisual img{
@@ -250,22 +465,49 @@ a:hover {
 
   }
 
-/* comming soon */
-.container
+
+  /* 子ページ */
+.ko
 {
-	text-align: center;
+	padding: 0 23px;
 }
 
-.contents
+.ko-sub-title
 {
-	padding: 40px 0;
+	font-size: 15px;
+	line-height: 21px; /* 140% */
+	letter-spacing: 1.5px;
 }
-.contents h2, h1
+.ko-enn
 {
+	display: flex;
+	justify-content: space-around;
+}
+.ko-enn__date
+{
+	color: #EA0029;
+	font-size: 12px;
+	font-style: normal;
 	font-weight: 400;
+	line-height: 21px; /* 175% */
+	letter-spacing: 1.2px;
 }
 
-.coming-soon
+.ko-place
 {
-	font-family:Helvetica ,"Helvetica Neue", sans-serif, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans";
+	background-color: #0080BB;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 21px; /* 175% */
+	letter-spacing: 1.2px;
+
+}
+
+.ko-title
+{
+	color: #EA0029;
+	font-size: 23px;
+	font-weight: 500;
+	line-height: normal;
 }
