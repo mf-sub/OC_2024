@@ -58,7 +58,7 @@
    <!-- 固定されたビデオ -->
    <div class="video-container">
 	<!-- <img src="images/親ページ.png" alt="メインビジュアル" class="fix"> -->
-	<video id="video-fix" muted>
+	<video id="video-fix" class="video-fix" muted>
 		<!-- <source src="images/main.mov" type="video/mp4"> -->
 		<source src="images/main_line.mp4" type="video/mp4">
 		あなたのブラウザはHTML5ビデオをサポートしていません。
@@ -181,7 +181,11 @@
 
 	<!-- トップページのメインビジュ-->
 	<div class="mainvisual" id="top">
-		<img src="images/mainvisual_completed.png" alt="SPメインビジュ" class="sp">
+		<video muted autoplay class="top-mv">
+			<source src="images/mv.mp4" type="video/mp4">
+			あなたのブラウザはHTML5ビデオをサポートしていません。
+		</video>
+		<!-- <img src="images/mainvisual_completed.png" alt="SPメインビジュ" class="sp"> -->
 	</div>
 </main>
     <script src="main.js"></script>

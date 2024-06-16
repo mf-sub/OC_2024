@@ -247,7 +247,7 @@ footer ul img{
 }
 
 .sns_rink{
-	padding: 50px 0;
+	padding-top: 50px;
 	width: 170px;
 	font-size: 10px;
 	font-weight: 400;
@@ -276,7 +276,7 @@ footer ul img{
     z-index: -1; /* 常に前面に表示 */
 }
 
-video{
+.video-fix{
 	position: fixed;
 	bottom: 0;
     overflow-x: hidden;
@@ -296,11 +296,11 @@ video{
 	z-index: 1;
 }
 @media screen and (min-width: 600px) {
-	video, .fix
+	.video-fix, .fix
 	{
 		width: 500px;
-		height: auto;
-		width: 100%;
+		/* height: auto;
+		width: 100%; */
 	}
 }
 
@@ -327,7 +327,7 @@ video{
 
 
 /* コンテンツ */
-.center-content_inner
+.center-content
 {
 	text-align: center;
 }
@@ -365,7 +365,7 @@ video{
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	border-radius: 25px;
+	border-radius: 60px;
 	border: 2px solid #0080BB;
 }
 
@@ -457,7 +457,7 @@ video{
 
 /* メインビジュ*/
 
-.mainvisual img{
+.mainvisual .top-mv{
 	margin-top: 20px;
 	width: 100%;
 	height: auto;
@@ -467,9 +467,13 @@ video{
 
 
   /* 子ページ */
+.ko-svg-1
+{
+	margin-bottom: 92px;
+}
 .ko
 {
-	padding: 0 23px;
+	padding: 0 34px;
 }
 
 .ko-sub-title
@@ -477,11 +481,32 @@ video{
 	font-size: 15px;
 	line-height: 21px; /* 140% */
 	letter-spacing: 1.5px;
+	padding-bottom: 10px;
+}
+.ko-text
+{
+	font-weight: 500;
+	line-height: 21px; /* 175% */
+	letter-spacing: 1.2px;
+	text-align: justify;
 }
 .ko-enn
 {
 	display: flex;
 	justify-content: space-around;
+	padding: 28px 20px 20px 20px;
+}
+.ko-enn_inner
+{
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+	width: 115px;
+    height: 115px;
+	background-image:url(images/ko-enn.svg);
+	background-size: 115px 115px;
+	background-repeat: no-repeat;
+
 }
 .ko-enn__date
 {
@@ -495,19 +520,76 @@ video{
 
 .ko-place
 {
+	display: inherit;
+	margin: 0 auto;
 	background-color: #0080BB;
+	margin-bottom: 17px;
 	color: #FFF;
 	font-size: 12px;
 	font-weight: 500;
 	line-height: 21px; /* 175% */
 	letter-spacing: 1.2px;
+	max-width: 230px;
+    height: 37px;
 
 }
 
 .ko-title
 {
 	color: #EA0029;
+	padding: 8px 18px;
 	font-size: 23px;
 	font-weight: 500;
 	line-height: normal;
+	border: 3px solid #0080BB;
+	letter-spacing: -0.2px;
+	line-height: 23px; /* 115% */
+}
+
+.ko-space_inner
+{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.ko-space .ko-svg-1
+{
+	margin-top: 95px;
+	margin-bottom: 106px;
+}
+
+.ko-svg-2, .ko-svg-3, .ko-svg-4
+{
+	margin-bottom: 16px;
+}
+
+.ko-svg-5
+{
+	margin: 56px 0 100px 0;
+}
+
+/* 子ページ個別接点 */
+.all-day
+{
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 21px; /* 140% */
+	letter-spacing: 1.5px;
+}
+.gd-4 .ko-sub-title
+{
+	font-size: 12px;
+	letter-spacing: 1.2px;
+}
+
+.gd-5 .ko-title, .gd-6 .ko-title, .gd-7 .ko-title, .ko-key .ko-title
+{
+	margin: 0 auto;
+	font-size: 20px;
+	letter-spacing: -0.4px;
+	width: 333px;
+	padding: 8px 0;
 }
