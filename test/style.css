@@ -71,7 +71,7 @@ body
 
 .en-font
 {
-	font-family:Helvetica ,"Helvetica Neue", sans-serif, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans";
+	font-family:"Helvetica Neue", Helvetica, sans-serif, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans";
 }
 
 
@@ -510,14 +510,21 @@ footer ul img{
 }
 .ko-enn__date
 {
-	color: #EA0029;
 	font-size: 12px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 21px; /* 175% */
 	letter-spacing: 1.2px;
 }
-
+.ko-enn__time
+{
+	color: #EA0029;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 21px; /* 140% */
+	letter-spacing: 0.75px;
+}
 .ko-place
 {
 	display: inherit;
@@ -529,7 +536,7 @@ footer ul img{
 	font-weight: 500;
 	line-height: 21px; /* 175% */
 	letter-spacing: 1.2px;
-	max-width: 230px;
+	max-width: 270px;
     height: 37px;
 
 }
@@ -543,7 +550,7 @@ footer ul img{
 	line-height: normal;
 	border: 3px solid #0080BB;
 	letter-spacing: -0.2px;
-	line-height: 23px; /* 115% */
+	line-height: 27px;
 }
 
 .ko-space_inner
@@ -553,11 +560,19 @@ footer ul img{
     align-items: center;
 }
 
-
+.ko-space_text
+{
+	padding: 45px 0;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 21px; /* 175% */
+	letter-spacing: 1.56px;
+}
 .ko-space .ko-svg-1
 {
 	margin-top: 95px;
-	margin-bottom: 106px;
+	margin-bottom: 0;
 }
 
 .ko-svg-2, .ko-svg-3, .ko-svg-4
@@ -579,17 +594,27 @@ footer ul img{
 	line-height: 21px; /* 140% */
 	letter-spacing: 1.5px;
 }
-.gd-4 .ko-sub-title
-{
-	font-size: 12px;
-	letter-spacing: 1.2px;
-}
-
-.gd-5 .ko-title, .gd-6 .ko-title, .gd-7 .ko-title, .ko-key .ko-title
+.ko-title_long
 {
 	margin: 0 auto;
 	font-size: 20px;
 	letter-spacing: -0.4px;
 	width: 333px;
 	padding: 8px 0;
+}
+
+.gd-4 .ko-sub-title
+{
+	font-size: 12px;
+	letter-spacing: 1.2px;
+}
+
+.film-1 .ko-sub-title
+{
+	font-size: 14px;
+}
+
+.film-1 .ko-sub-title , .film-4 .ko-sub-title ,.ani-1 .ko-sub-title
+{
+	letter-spacing: 0.75px;
 }
