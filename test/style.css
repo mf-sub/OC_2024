@@ -7,7 +7,7 @@ html{
   font-size: 12px;
   font-family:"Noto Sans JP",'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
   color: #0080BB;
-  background-color: #dfdfdf;
+  /* background-color: #dfdfdf; */
 }
 
 
@@ -275,10 +275,18 @@ footer ul img{
 	margin: 0 auto;
     z-index: -1; /* 常に前面に表示 */
 }
+/* .video-fix{
+	position: absolute;
+	top: -80px;
+    overflow-x: hidden;
+    width: 390px;
+    margin: 0 auto;
+	z-index: -1;
+} */
 
 .video-fix{
-	position: fixed;
-	bottom: 0;
+	position: absolute;
+	top: 0;
     overflow-x: hidden;
     width: 100%;
     min-width: 320px;
@@ -288,7 +296,7 @@ footer ul img{
 }
 .fix{
 	position: absolute;
-	top: 0;
+	top: -70px;
     overflow-x: hidden;
     width: 100%;
     min-width: 320px;
@@ -411,6 +419,11 @@ footer ul img{
 	padding-top: 23px;
 	margin: 0 24px;
 	justify-content: center;
+}
+.major-icon a
+{
+	color: #0080BB;
+	text-decoration:none;
 }
 .major-icon li
 {
