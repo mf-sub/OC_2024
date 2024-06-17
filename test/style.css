@@ -537,7 +537,7 @@ footer ul img{
 	font-weight: 500;
 	line-height: 21px; /* 175% */
 	letter-spacing: 1.2px;
-	max-width: 270px;
+	max-width: 300px;
 }
 
 .ko-title
@@ -561,7 +561,7 @@ footer ul img{
 
 .ko-space_text
 {
-	padding: 45px 0;
+	padding-top: 45px;
 	font-size: 12px;
 	font-style: normal;
 	font-weight: 500;
@@ -573,7 +573,10 @@ footer ul img{
 	margin-top: 100px;
 	margin-bottom: 0;
 }
-
+.ko-svg-2
+{
+	margin-top: 45px;
+}
 .ko-svg-2, .ko-svg-3, .ko-svg-4
 {
 	margin-bottom: 16px;
@@ -593,6 +596,15 @@ footer ul img{
 	line-height: 21px; /* 140% */
 	letter-spacing: 1.5px;
 }
+.no-plan
+{
+	color: #A5A5A5;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 21px; /* 175% */
+	letter-spacing: 1.56px;
+}
 .ko-title_long
 {
 	margin: 0 auto;
@@ -601,7 +613,18 @@ footer ul img{
 	width: 333px;
 	padding: 8px 0;
 }
-
+.place-flex
+{
+	display: inline-flex;
+    text-align: justify;
+    align-items: center;
+	max-width: 270px;
+	letter-spacing: 1.56px;
+}
+.place
+{
+	padding-right: 13px;
+}
 .gd-4 .ko-sub-title
 {
 	font-size: 12px;
