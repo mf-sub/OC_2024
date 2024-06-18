@@ -5,7 +5,7 @@ window.onload = function() {
     // ページ読み込み後に短い遅延を置いて一番下までスクロール
     setTimeout(function() {
         window.scrollTo(0, document.body.scrollHeight);
-    }, 10); // 10ミリ秒の遅延
+    }, 400); // 10ミリ秒の遅延
 
 	// loadings_animation
 	const spinner = document.getElementById('loading');
