@@ -1,0 +1,23 @@
+
+.content {
+    width: 100%;
+}
+
+.content .padding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+}
+
+#anim_img_box {
+    position: sticky;
+	width: 390px;
+    height: 3480px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
