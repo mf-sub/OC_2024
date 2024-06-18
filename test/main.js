@@ -1,3 +1,19 @@
+
+
+
+window.onload = function() {
+    // ページ読み込み後に短い遅延を置いて一番下までスクロール
+    setTimeout(function() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }, 10); // 10ミリ秒の遅延
+
+	// loadings_animation
+	const spinner = document.getElementById('loading');
+	spinner.classList.add('loaded');
+};
+
+
+
 // ハンバーガーメニュー
 const ham = document.querySelector('#js-hamburger');
 const nav = document.querySelector('#js-nav');
@@ -6,6 +22,7 @@ const nav = document.querySelector('#js-nav');
 document.getElementById('js-hamburger').addEventListener('click',function() {
 document.getElementById('js-nav').classList.toggle('active');
 });
+
 
 // $('a[href*="index.html#"]').click(function () {
 // 	document.getElementById('js-nav').classList.remove('active');
@@ -17,51 +34,25 @@ document.getElementById('js-nav').classList.toggle('active');
 
 
 // ウィンドウがスクロールされるたびにこの関数が呼び出される
-// window.onscroll = function() {
-//     var video = document.getElementById('video-fix');
-
-//     // ビデオの現在の再生位置を取得
-//     var currentTime = video.currentTime;
-
-//     // ページのスクロール量を取得
-//     var scrollPosition = window.scrollY;
-
-//     // ページの高さとビデオの長さを取得
-//     var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-//     var videoDuration = video.duration;
-
-//     // スクロール位置をビデオの再生位置にマッピング
-//     if (videoDuration) { // 動画のメタデータが読み込まれているか確認
-//         var newTime = (scrollPosition / documentHeight) * videoDuration;
-//         video.currentTime = newTime;
-//     }
-// };
-
-window.addEventListener('load', function() {
+window.onscroll = function() {
     var video = document.getElementById('video-fix');
 
-    // 動画のメタデータが読み込まれた後にスクロールイベントを設定
-    video.addEventListener('loadedmetadata', function() {
-        var videoDuration = video.duration;
+    // ビデオの現在の再生位置を取得
+    var currentTime = video.currentTime;
 
-        // 動画を再生開始
-        video.play();
+    // ページのスクロール量を取得
+    var scrollPosition = window.scrollY;
 
-        window.onscroll = function() {
-            // ページのスクロール量を取得
-            var scrollPosition = window.scrollY;
+    // ページの高さとビデオの長さを取得
+    var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var videoDuration = video.duration;
 
-            // ページの高さを取得
-            var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-            // スクロール位置をビデオの再生位置にマッピング
-            if (videoDuration) {
-                var newTime = (scrollPosition / documentHeight) * videoDuration;
-                video.currentTime = newTime;
-            }
-        };
-    });
-});
+    // スクロール位置をビデオの再生位置にマッピング
+    if (videoDuration) { // 動画のメタデータが読み込まれているか確認
+        var newTime = (scrollPosition / documentHeight) * videoDuration;
+        video.currentTime = newTime;
+    }
+};
 
 
 
