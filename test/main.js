@@ -1,6 +1,5 @@
 
-
-
+// 最下部スクロール
 window.onload = function() {
     // ページ読み込み後に短い遅延を置いて一番下までスクロール
     setTimeout(function() {
@@ -9,9 +8,10 @@ window.onload = function() {
 
 	// loadings_animation
 	const spinner = document.getElementById('loading');
-	spinner.classList.add('loaded');
+	if (spinner) { // spinnerがnullでないか確認
+        spinner.classList.add('loaded');
+	}
 };
-
 
 
 // ハンバーガーメニュー
@@ -23,14 +23,14 @@ document.getElementById('js-hamburger').addEventListener('click',function() {
 document.getElementById('js-nav').classList.toggle('active');
 });
 
-
-// $('a[href*="index.html#"]').click(function () {
-// 	document.getElementById('js-nav').classList.remove('active');
-// 	var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
-// 	var pos = $(elmHash).offset().top - 30;  //idの上部の距離を取得
-// 	$('html, body').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
-// 	return false;
-// });
+// メニューからスクロール
+$('a[href*="index.html#"]').click(function () {
+	document.getElementById('js-nav').classList.remove('active');
+	var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+	var pos = $(elmHash).offset().top - 30;  //idの上部の距離を取得
+	$('html, body').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
+	return false;
+});
 
 
 // ウィンドウがスクロールされるたびにこの関数が呼び出される
@@ -55,10 +55,27 @@ window.onscroll = function() {
 };
 
 
-
 // ビデオがロードされたときに自動再生を開始
 // document.getElementById('fixed-video').addEventListener('loadeddata', function() {
 //     this.play();
 // });
+
+// apngがhoverされたときに自動再生を開始
+document.addEventListener("DOMContentLoaded", function() {
+    const listItems = document.querySelectorAll(".icon-hover");
+
+	listItems.forEach(function(listItem) {
+        const img = listItem.querySelector("img");
+        const apngSrc = img.src;
+
+		listItem.addEventListener("mouseover", function() {
+			// img.src = ""; // 一時的にsrcを空にする
+			const newImg = img.cloneNode();
+			setTimeout(() => {
+				img.src = apngSrc; // 再度APNGのパスを設定
+			}, 0); // 短い遅延を設定
+		});
+	});
+});
 
 

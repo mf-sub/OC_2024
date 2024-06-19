@@ -9,7 +9,7 @@
 <body>
 
 	<div class="shutter">
-		<video muted autoplay>
+		<video muted autoplay class="shutter-inner">
 			<source src="images/mv.mp4" type="video/mp4" class="shutter-video">
 			あなたのブラウザはHTML5ビデオをサポートしていません。
 		</video>
@@ -20,12 +20,12 @@
 		<div class="header__inner">
 			<nav class="header__nav nav" id="js-nav">
 				<ul class="nav__items nav-items" id="rink">
-					<li class="nav-items__item" ><a href="index.html#top">TOP</a></li>
-					<li class="nav-items__item" ><a href="index.html#thema">THEME</a></li>
-					<li class="nav-items__item" ><a href="index.html#event">EVENT</a></li>
-					<li class="nav-items__item" ><a href="index.html#opencampus">OPENCAMPUS</a></li>
-					<li class="nav-items__item" ><a href="index.html#access">ACCESS</a></li>
-					<li class="nav-items__item" ><a href="index.html#ask">ASK</a></li>
+					<li class="nav-items__item"><a href="index.html#ask">ASK</a></li>
+					<li class="nav-items__item"><a href="index.html#access">ACCESS</a></li>
+					<li class="nav-items__item"><a href="index.html#opencampus">OPENCAMPUS</a></li>
+					<li class="nav-items__item"><a href="index.html#event">EVENT</a></li>
+					<li class="nav-items__item"><a href="index.html#thema">THEME</a></li>
+					<li class="nav-items__item"><a href="index.html#top">TOP</a></li>
 				</ul>
 			</nav>
 			<button class="header__hamburger hamburger" id="js-hamburger">
@@ -111,21 +111,20 @@
 			<h3 class="sub-title">各専攻領域のイベント</h3>
 			<div class="major-icons">
 			<ul class="major-icon">
-				<li>
+				<li class="icon-hover">
 					<a href="index_gd.html">
-					<img src="images/icon/icon-GD.png" alt="" class="major-icon_top">
-					<!-- <video src="images/icon/icon-GD.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
-					<p class="major-icon_text">グラフィック<br>デザイン専攻領域</p>
+						<img src="images/icon/icon-GD.png" alt="icon" class="major-icon_top">
+						<p class="major-icon_text">グラフィック<br>デザイン専攻領域</p>
 					</a>
 				</li>
-				<li>
+				<li class="icon-hover">
 					<a href="index_photo.html">
 					<img src="images/icon/icon-photo.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-photo.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
 					<p class="major-icon_text">写真専攻領域</p>
 					</a>
 				</li>
-				<li>
+				<li class="icon-hover">
 					<a href="index_film.html">
 					<img src="images/icon/icon-movie.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-movie.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
@@ -134,21 +133,21 @@
 				</li>
 			</ul>
 			<ul class="major-icon">
-				<li>
+				<li class="icon-hover">
 					<a href="index_anime.html">
 					<img src="images/icon/icon-animation.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-movie.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
 					<p class="major-icon_text">アニメーション<br>専攻領域</p>
 					</a>
 				</li>
-				<li>
+				<li class="icon-hover">
 					<a href="index_md.html">
 					<img src="images/icon/icon-MD.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-GD.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
 					<p class="major-icon_text">メディアデザイン<br>デザイン専攻領域</p>
 					</a>
 				</li>
-				<li>
+				<li class="icon-hover">
 					<a href="index_ia.html">
 					<img src="images/icon/icon-FI.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-photo.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
@@ -157,21 +156,21 @@
 				</li>
 			</ul>
 			<ul class="major-icon">
-				<li>
+				<li class="icon-hover">
 					<a href="index_id.html">
 					<img src="images/icon/icon-ID.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-movie.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
 					<p class="major-icon_text">インダストリアル<br>デザイン専攻領域</p>
 					</a>
 				</li>
-				<li>
+				<li class="icon-hover">
 					<a href="index_td.html">
 					<img src="images/icon/icon-TD.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-GD.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
 					<p class="major-icon_text">テキスタイル<br>デザイン専攻領域</p>
 					</a>
 				</li>
-				<li>
+				<li class="icon-hover">
 					<a href="index_pt.html">
 					<img src="images/icon/icon-paint.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-photo.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
@@ -180,14 +179,14 @@
 				</li>
 			</ul>
 			<ul class="major-icon">
-				<li>
+				<li class="icon-hover">
 					<a href="index_sc.html">
 					<img src="images/icon/icon-sculpture.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-GD.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
 					<p class="major-icon_text">彫刻専攻領域</p>
 					</a>
 				</li>
-				<li>
+				<li class="icon-hover">
 					<a href="index_others.html">
 					<img src="images/icon/icon-animation.png" alt="" class="major-icon_top">
 					<!-- <video src="images/icon/icon-photo.mp4"  autoplay muted playsinline class="major-icon_top"></video> -->
@@ -218,6 +217,8 @@
 		 <!-- <img src="images/mainvisual_completed.png" alt="SPメインビジュ" class="sp"> -->
 	</div>
 </main>
+<!-- スクロール -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 </html>
