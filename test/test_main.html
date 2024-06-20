@@ -10,7 +10,7 @@
 <body>
 <main>
 
-	< class="content">
+	<div class="content">
 		<div class="padding">
 			<p style="color:white;">HELLO</p>
 
@@ -52,18 +52,20 @@
 	<div class="kore">
 
 
-	<div id="anim_img_box">
+	<!-- <div id="anim_img_box"> -->
 		<!-- <img class="ainm_img" id="anim_img" src="images/main_sp/main_sp_00001.png" style="width: 390px;"/> 初期画像を入れておくよ。置き換わる部分だよ -->
-		<img class="ainm_img" id="anim_img" src="images/exp_web全体_逆/main_00000.png" style="width: 390px;"/>
-	</div>
+		<!-- <img class="ainm_img" id="anim_img" src="images/exp_web全体_逆/main_00000.png" style="width: 390px;"/>
+	</div> -->
 	<div class="anim_padding">
 
 	</div>
 
 	<div class="mumu">
-
+			<div id="anim_img_box">
+				<!-- <img class="ainm_img" id="anim_img" src="images/main_sp/main_sp_00001.png" style="width: 390px;"/> 初期画像を入れておくよ。置き換わる部分だよ -->
+				<img class="ainm_img" id="anim_img" src="images/exp_web全体_逆/main_00000.png" style="width: 390px;"/>
+			</div>
 		<div class="yohaku">
-		</div>
 			<div class="ask center-content" id="ask">
 				<div class="ask_inner center-content_inner">
 					<h2 class="title en-font ask__title">ASK</h2>
@@ -208,9 +210,10 @@
 			<!-- <img src="images/mainvisual_completed.png" alt="SPメインビジュ" class="sp"> -->
 		</div>
 	</div>
+	</div>
 
 
-	<div id="anim_img_padding" class="padding sita" style="height: 200px;">
+	<div id="anim_img_padding" class="padding sita" style="height: 1200px; margin-bottom: 2000px;">
 
 	</div>
 
@@ -247,7 +250,7 @@ const image = document.getElementById("anim_img");
 
 var SIZE = 956;
 
-const PX = 5; // 5px分の移動ごと画像を1枚進める
+const PX = 6; // 5px分の移動ごと画像を1枚進める
 const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(position:stickyでトップに来たら固定される)
     $(window).scroll(function() {
         const y = $(window).scrollTop();
@@ -262,7 +265,7 @@ const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(posit
         }
     });
 
-$("#anim_img_padding").height(SIZE*5);
+// $("#anim_img_padding").height(SIZE*1);
 
 
 
