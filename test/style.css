@@ -6,7 +6,7 @@
 html{
   font-size: 12px;
   font-family:"Noto Sans JP",'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
-  color: #0080BB;
+  color: #26A9D7;
   /* background-color: #dfdfdf; */
 }
 
@@ -82,7 +82,7 @@ body
     top: 0;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    /* background-color: #fff; */
 	margin: 0 auto;
 }
 
@@ -90,9 +90,26 @@ body
 {
 	position: absolute;
     width: 390px;
-    top: -200px;
+    top: 20px;
     margin: auto;
     z-index: -10;
+}
+
+#anim_img_box-fin
+{
+	position: sticky;
+	width: 390px;
+	top: 0;
+	justify-content: center;
+	align-items: center;
+	/* background-color: #fff; */
+	margin: 0 auto;
+	height: 3100px;
+}
+
+.ainm_img-fin
+{
+	top: -200px;
 }
 
 .contents
@@ -227,7 +244,7 @@ body
   /* ナビのリンク */
   .nav-items__item a {
 	text-decoration: none;
-	color: #0080BB;
+	color: #26A9D7;
 	width: 100%;
 	display: block;
 	text-align: right;
@@ -267,7 +284,7 @@ body
   .hamburger span {
 	width: 100%;
 	height: 3px;
-	background-color: #0080BB;
+	background-color: #26A9D7;
 	position: relative;
 	transition: ease .4s;
 	display: block;
@@ -464,7 +481,7 @@ footer ul img{
 	font-weight: 700;
 	line-height: normal;
 	border-radius: 60px;
-	border: 2px solid #0080BB;
+	border: 2px solid #26A9D7;
 }
 
 
@@ -485,8 +502,8 @@ footer ul img{
 /* abouts */
 .about, .event, .thema
 {
-	padding-top: 115px;
-	padding-bottom: 45px;
+	padding-top: 110px;
+	padding-bottom: 110px;
 }
 
 .about .top-text, .thema .top-text
@@ -512,7 +529,7 @@ footer ul img{
 }
 .major-icon a
 {
-	color: #0080BB;
+	color: #26A9D7;
 	text-decoration:none;
 }
 .major-icon li
@@ -541,7 +558,7 @@ footer ul img{
 /* Thema */
 .thema .sub-title
 {
-	color: #0080BB;
+	color: #26A9D7;
 	padding-left: 16px;
 	font-size: 23px;
 	line-height: normal;
@@ -637,7 +654,7 @@ footer ul img{
 {
 	display: inherit;
 	margin: 0 auto;
-	background-color: #0080BB;
+	background-color: #26A9D7;
 	margin-bottom: 20px;
 	color: #FFF;
 	font-size: 12px;
@@ -654,7 +671,7 @@ footer ul img{
 	font-size: 23px;
 	font-weight: 500;
 	line-height: normal;
-	border: 3px solid #0080BB;
+	border: 3px solid #26A9D7;
 	letter-spacing: -0.2px;
 	line-height: 27px;
 }

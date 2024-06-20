@@ -76,7 +76,7 @@
 
 	<div id="anim_img_box">
 		<!-- <img class="ainm_img" id="anim_img" src="images/main_sp/main_sp_00001.png" style="width: 390px;"/> 初期画像を入れておくよ。置き換わる部分だよ -->
-		<img class="ainm_img" id="anim_img" src="images/exp_web全体_逆/main_00670.png"/>
+		<img class="ainm_img" id="anim_img" src="images/mv/mv_00000.png"/>
 	</div>
 
 	<div class="ask center-content" id="ask">
@@ -225,9 +225,7 @@
 </div>
 
 
-<div id="anim_img_padding" class="padding sita" style="height: 2000px;">
-	<p>hello</p>
-</div>
+<div id="anim_img_padding" class="padding sita"></div>
 
 	<div class="padding" >
 		<p style="color:white">Let's start.</p>
@@ -240,99 +238,172 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 	<script>
-		// var SIZE = 670;
-
-		// var tmp = {};
-		// 	loadImageToTmp();
-		// 	function loadImageToTmp(){
-		// 		for(var i=0;i<=670;i++){
-		// 			const _i = i;
-		// 			const img = new Image();
-		// 			tmp[_i] = null;
-		// 			// img.src = "anim/hamoni_sp ("+_i+").png";
-		// 			const filename = "images/exp_web全体_逆/main_" + String(_i).padStart(5, '0') + ".png";
-		// 			img.src = filename;
-		// 			img.addEventListener("load",()=>{
-		// 				tmp[_i] = img;
-		// 			})
-		// 		}
-		// 	}
-
-
-		// const image = document.getElementById("anim_img");
-
-		// var SIZE = 670;
-
-		// const PX = 4; // 5px分の移動ごと画像を1枚進める
-		// const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(position:stickyでトップに来たら固定される)
-		// 	$(window).scroll(function() {
-		// 		const y = $(window).scrollTop();
-		// 		const dy = y - offset.top;
-		// 		if(offset.top<y&&y<offset.top+SIZE*PX){
-		// 			$("#anim_img_box").css("top",0)
-		// 			const i = Math.floor(dy / PX);
-		// 			if(i<=0||i>=SIZE) return;
-		// 			if(tmp[i].src) image.src = tmp[i].src;
-		// 		}else if(y>=offset.top+SIZE*PX){
-		// 			$("#anim_img_box").css("top","-"+(dy-SIZE*PX)); // スクロール分が終了したときに移動を始める
-		// 		}
-		// 	});
-
-		// $("#anim_img_padding").height(SIZE*1.1);
-
-
-
-		var SIZE = 670;
-		var PX = 4;
-		var SPECIAL_START = 575;
-		var SPECIAL_END = 670;
-		var SPECIAL_PX = 2;
+		var SIZE = 1100;
 
 		var tmp = {};
-		loadImageToTmp();
-		function loadImageToTmp(){
-			for(var i=0;i<=SIZE;i++){
-				const _i = i;
-				const img = new Image();
-				tmp[_i] = null;
-				const filename = "images/exp_web全体_逆/main_" + String(_i).padStart(5, '0') + ".png";
-				img.src = filename;
-				img.addEventListener("load",()=>{
-					tmp[_i] = img;
-				})
+			loadImageToTmp();
+			function loadImageToTmp(){
+				for(var i=0;i<=1100;i++){
+					const _i = i;
+					const img = new Image();
+					tmp[_i] = null;
+					// img.src = "anim/hamoni_sp ("+_i+").png";
+					const filename = "images/mv/mv_" + String(_i).padStart(5, '0') + ".png";
+					img.src = filename;
+					img.addEventListener("load",()=>{
+						tmp[_i] = img;
+					})
+				}
 			}
-		}
+
 
 		const image = document.getElementById("anim_img");
-		const offset = $("#anim_img_box").offset();
-		$(window).scroll(function() {
-			const y = $(window).scrollTop();
-			const dy = y - offset.top;
 
-			if(offset.top < y && y < offset.top + SIZE * PX){
-				$("#anim_img_box").css("top",0)
+		var SIZE = 1100;
 
-				let i;
-				if(dy >= SPECIAL_START * PX){
-					i = SPECIAL_START + Math.floor((dy - SPECIAL_START * PX) / SPECIAL_PX);
-				} else {
-					i = Math.floor(dy / PX);
+		const PX = 2; // 5px分の移動ごと画像を1枚進める
+		const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(position:stickyでトップに来たら固定される)
+			$(window).scroll(function() {
+				const y = $(window).scrollTop();
+				const dy = y - offset.top;
+				if(offset.top<y&&y<offset.top+SIZE*PX){
+					$("#anim_img_box").css("top",0)
+					const i = Math.floor(dy / PX);
+					if(i<=0||i>=SIZE) return;
+					if(tmp[i].src) image.src = tmp[i].src;
+				}else if(y>=offset.top+SIZE*PX){
+					$("#anim_img_box").css("top","-"+(dy-SIZE*PX)); // スクロール分が終了したときに移動を始める
 				}
+			});
 
-				if(i <= 0 || i >= SIZE) return;
-				if(tmp[i].src) image.src = tmp[i].src;
-
-			} else if(y >= offset.top + SIZE * PX){
-				$("#anim_img_box").css("top","-"+(dy - SIZE * PX));
-			}
-		});
-
-		$("#anim_img_padding").height(SIZE * 1.1);
+		$("#anim_img_padding").height(SIZE*0.8);
 
 
+// 		var SIZE = 1100;
+
+// var tmp = {};
+// loadImageToTmp();
+// function loadImageToTmp() {
+//     for (var i = 0; i <= SIZE; i++) {
+//         const _i = i;
+//         const img = new Image();
+//         tmp[_i] = null;
+//         const filename = "images/mv/mv_" + String(_i).padStart(5, '0') + ".png";
+//         img.src = filename;
+//         img.addEventListener("load", () => {
+//             tmp[_i] = img;
+//         });
+//     }
+// }
+
+// const image = document.getElementById("anim_img");
+
+// const DEFAULT_PX = 1; // 通常の移動ごとの画像進行速度
+// const SPECIAL_PX = 3; // 特定の範囲内の移動ごとの画像進行速度
+// const SPECIAL_START = 615;
+// const SPECIAL_END = 840;
+
+// const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(position:stickyでトップに来たら固定される)
+
+// $(window).scroll(function() {
+//     const y = $(window).scrollTop();
+//     const dy = y - offset.top;
+//     let PX = DEFAULT_PX;
+
+//     // スクロール位置に応じた画像インデックスを計算
+//     let i = 0;
+
+//     // 特定の範囲内でPXの値を変更し、画像インデックスを調整
+//     if (dy < SPECIAL_START * DEFAULT_PX) {
+//         i = Math.floor(dy / DEFAULT_PX);
+//     } else if (dy < SPECIAL_START * DEFAULT_PX + (SPECIAL_END - SPECIAL_START) * SPECIAL_PX) {
+//         i = SPECIAL_START + Math.floor((dy - SPECIAL_START * DEFAULT_PX) / SPECIAL_PX);
+//     } else {
+//         i = SPECIAL_END + Math.floor((dy - (SPECIAL_START * DEFAULT_PX + (SPECIAL_END - SPECIAL_START) * SPECIAL_PX)) / DEFAULT_PX);
+//     }
+
+//     if (offset.top < y && y < offset.top + SIZE * DEFAULT_PX) {
+//         $("#anim_img_box").css("top", 0);
+//         if (i <= 0 || i >= SIZE) return;
+//         if (tmp[i] && tmp[i].src) image.src = tmp[i].src;
+//     } else if (y >= offset.top + SIZE * DEFAULT_PX) {
+//         $("#anim_img_box").css("top", "-" + (dy - SIZE * DEFAULT_PX)); // スクロール分が終了したときに移動を始める
+//     }
+// });
+
+// $("#anim_img_padding").height(SIZE * 0.8);
 
 
-	// 	var SIZE = 670;
+		// var SIZE = 1100;
+		// var PX = 2;
+		// var SPECIAL_START = 950;
+		// var SPECIAL_END = 1100;
+		// var SPECIAL_PX = 1;
+
+		// var tmp = {};
+		// loadImageToTmp();
+		// function loadImageToTmp(){
+		// 	for(var i = 0; i <= SIZE; i++){
+		// 		const _i = i;
+		// 		const img = new Image();
+		// 		tmp[_i] = null;
+		// 		const filename = "images/mv/mv_" + String(_i).padStart(5, '0') + ".png";
+		// 		img.src = filename;
+		// 		img.addEventListener("load", () => {
+		// 			tmp[_i] = img;
+		// 		});
+		// 	}
+		// }
+
+		// const image = document.getElementById("anim_img");
+		// const offset = $("#anim_img_box").offset();
+		// let lastImageIndex = -1;
+
+		// function changeImageTo(index, interval, direction) {
+		// 	if(index < 0 || index > SIZE) return;
+		// 	if(direction === 'up' && index >= lastImageIndex) return;
+		// 	if(direction === 'down' && index <= lastImageIndex) return;
+
+		// 	if(tmp[index] && tmp[index].src) {
+		// 		image.src = tmp[index].src;
+		// 		lastImageIndex = index;
+		// 		setTimeout(() => changeImageTo(index + (direction === 'up' ? -1 : 1), interval, direction), interval);
+		// 	}
+		// }
+
+		// $(window).scroll(function() {
+		// 	const y = $(window).scrollTop();
+		// 	const dy = y - offset.top;
+
+		// 	if(y === 0 && lastImageIndex !== 0) {
+		// 		changeImageTo(lastImageIndex, 10, 'up');
+		// 	} else if(y + $(window).height() >= $(document).height() && lastImageIndex !== SIZE) {
+		// 		changeImageTo(lastImageIndex, 10, 'down');
+		// 	} else if(offset.top < y && y < offset.top + SIZE * PX) {
+		// 		$("#anim_img_box").css("top", 0);
+
+		// 		let i;
+		// 		if(dy >= SPECIAL_START * PX){
+		// 			i = SPECIAL_START + Math.floor((dy - SPECIAL_START * PX) / SPECIAL_PX);
+		// 		} else {
+		// 			i = Math.floor(dy / PX);
+		// 		}
+
+		// 		if(i < 0 || i >= SIZE || i === lastImageIndex) return;
+
+		// 		if(tmp[i] && tmp[i].src) {
+		// 			image.src = tmp[i].src;
+		// 			lastImageIndex = i;
+		// 		}
+
+		// 	} else if(y >= offset.top + SIZE * PX){
+		// 		$("#anim_img_box").css("top", "-" + (dy - SIZE * PX));
+		// 	}
+		// });
+
+		// $("#anim_img_padding").height(SIZE * 1.1);
+
+	// 	var SIZE = 1100;
 
 	// 	var tmp = {};
 	// 	loadImageToTmp();
