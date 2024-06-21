@@ -76,8 +76,17 @@ body
 
 
 /* 矢印 */
+.bk
+{
+	position: absolute;
+    height: 3000px;
+	left: 0;
+    right: 0;
+	z-index: -10;
+}
+
 #anim_img_box {
-    /* position: sticky; */
+    position: sticky;
 	width: 390px;
     top: 0;
     justify-content: center;
@@ -88,7 +97,7 @@ body
 
 .ainm_img
 {
-	position: absolute;
+	/* position: absolute; */
     width: 390px;
     top: 20px;
     margin: auto;
@@ -494,16 +503,15 @@ footer ul img{
 
 .access
 {
-	padding: 104px 0;
-	padding-right:133px;
+	padding: 104px 133px 45px 0;
 }
 
 
 /* abouts */
 .about, .event, .thema
 {
-	padding-top: 110px;
-	padding-bottom: 110px;
+	padding-top: 180px;
+	/* padding-bottom: 110px; */
 }
 
 .about .top-text, .thema .top-text
