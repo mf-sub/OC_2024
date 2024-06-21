@@ -79,7 +79,7 @@ body
 .bk
 {
 	position: absolute;
-    height: 3000px;
+    height: 3100px;
 	left: 0;
     right: 0;
 	z-index: -10;
@@ -128,10 +128,6 @@ body
 	/* padding-top: 200px; */
 }
 
-.padding
-{
-	background-color: #fff3a5;
-}
 
 /*オープニングアニメーション*/
 .shutter video
@@ -171,6 +167,69 @@ body
 	  z-index: -5;
 	}
   }
+
+  /* fadeUp */
+
+.ask .fadeUp {
+	animation-name:rightAnime;
+	animation-duration:0.6s;
+	animation-fill-mode:forwards;
+	opacity:0;
+}
+
+@keyframes rightAnime{
+	from {
+	opacity: 0;
+	transform: scale(0.5) translateX(-50px);
+	}
+
+	to {
+	opacity: 1;
+	transform: scale(1) translateX(0px);
+	}
+}
+
+.access .fadeUp {
+	animation-name:leftAnime;
+	animation-duration:0.6s;
+	animation-fill-mode:forwards;
+	opacity:0;
+}
+
+@keyframes leftAnime{
+	from {
+	opacity: 0;
+	transform: scale(0.5) translateX(50px);
+	}
+
+	to {
+	opacity: 1;
+	transform: scale(1) translateX(0px);
+	}
+}
+
+.about .fadeUp, .thema .fadeUp, .event .fadeUp
+{
+	animation-name:fadeUpAnime;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+	opacity:0;
+	}
+
+	@keyframes fadeUpAnime{
+	  from {
+		opacity: 0;
+	  }
+
+	  to {
+		opacity: 1;
+	  }
+}
+
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+.fadeUpTrigger{
+	opacity: 0;
+}
 
 /* ローディング */
 #loading {
@@ -510,7 +569,7 @@ footer ul img{
 /* abouts */
 .about, .event, .thema
 {
-	padding-top: 180px;
+	padding-top: 140px;
 	/* padding-bottom: 110px; */
 }
 

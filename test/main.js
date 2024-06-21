@@ -4,7 +4,7 @@ window.onload = function() {
     // ページ読み込み後に短い遅延を置いて一番下までスクロール
     setTimeout(function() {
         window.scrollTo(0, document.body.scrollHeight);
-    }, 400); // 10ミリ秒の遅延
+    }, 600); // 10ミリ秒の遅延
 
 	// loadings_animation
 	const spinner = document.getElementById('loading');
@@ -39,7 +39,7 @@ var SIZE = 280;
 var tmp = {};
 	loadImageToTmp();
 	function loadImageToTmp(){
-		for(var i=1;i<=280;i++){
+		for(var i=10;i<=280;i++){
 			const _i = i;
 			const img = new Image();
 			tmp[_i] = null;
@@ -57,7 +57,7 @@ const image = document.getElementById("anim_img");
 
 var SIZE = 280;
 
-const PX = 10; // 5px分の移動ごと画像を1枚進める
+const PX = 12; // 5px分の移動ごと画像を1枚進める
 const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(position:stickyでトップに来たら固定される)
 	$(window).scroll(function() {
 		const y = $(window).scrollTop();
@@ -65,14 +65,14 @@ const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(posit
 		if(offset.top<y&&y<offset.top+SIZE*PX){
 			$("#anim_img_box").css("top",0)
 			const i = Math.floor(dy / PX);
-			if(i<=0||i>=SIZE) return;
+			if(i<=10||i>=SIZE) return;
 			if(tmp[i].src) image.src = tmp[i].src;
 		}else if(y>=offset.top+SIZE*PX){
 			$("#anim_img_box").css("top","-"+(dy-SIZE*PX)); // スクロール分が終了したときに移動を始める
 		}
 	});
 
-$("#anim_img_padding").height(SIZE*4);
+$("#anim_img_padding").height(SIZE*4.2);
 
 
 // ウィンドウがスクロールされるたびにこの関数が呼び出される
@@ -121,3 +121,32 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// テキストアニメーション
+// 動きのきっかけとなるアニメーションの名前を定義
+function fadeAnime(){
+
+//ふわっと動くきっかけのクラス名と動きのクラス名の設定
+$('.fadeUpTrigger').each(function(){ //fadeInUpTriggerというクラス名が
+	var elemPos = $(this).offset().top+800; //要素より、50px上の
+	var scroll = $(window).scrollTop();
+	var windowHeight = $(window).height();
+	if (scroll >= elemPos - windowHeight){
+	$(this).removeClass('fadeUp');
+	// 画面内に入ったらfadeInというクラス名を追記
+	}else{
+		$(this).addClass('fadeUp');
+	// 画面外に出たらfadeInというクラス名を外す
+	}
+	});
+
+}//ここまでふわっと動くきっかけのクラス名と動きのクラス名の設定
+
+// 画面をスクロールをしたら動かしたい場合の記述
+	$(window).scroll(function (){
+	fadeAnime();/* アニメーション用の関数を呼ぶ*/
+	});// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+	$(window).on('load', function(){
+	fadeAnime();/* アニメーション用の関数を呼ぶ*/
+	});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
