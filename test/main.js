@@ -1,17 +1,62 @@
 
 // 最下部スクロール
-window.onload = function() {
-    // ページ読み込み後に短い遅延を置いて一番下までスクロール
-    setTimeout(function() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }, 600); // 10ミリ秒の遅延
+const sectionIds = ['top', 'thema', 'event', 'opencampus', 'access', 'ask'];
+let currentIndex = sectionIds.length - 1; // 最後のセクションから開始
+let isScrolling = false;
 
-	// loadings_animation
-	const spinner = document.getElementById('loading');
-	if (spinner) { // spinnerがnullでないか確認
-        spinner.classList.add('loaded');
-	}
+function scrollToSection(index) {
+  if (index >= 0 && index < sectionIds.length) {
+	const section = document.getElementById(sectionIds[index]);
+	section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	currentIndex = index;
+	isScrolling = true;
+
+	setTimeout(() => {
+	  isScrolling = false;
+	}, 1000); // スクロールの完了を待つ時間を設定
+  }
+}
+
+window.onload = function() {
+  // ページ読み込み後に短い遅延を置いて一番下までスクロール
+  setTimeout(function() {
+	window.scrollTo(0, document.body.scrollHeight);
+	setTimeout(() => {
+	  // currentIndexを最後のセクションに設定し、isScrollingをfalseに設定
+	  currentIndex = sectionIds.length - 1;
+	  isScrolling = false;
+	}, 600);
+  }, 10);
+
+  // loadings_animation
+  const spinner = document.getElementById('loading');
+  if (spinner) { // spinnerがnullでないか確認
+	spinner.classList.add('loaded');
+  }
 };
+
+window.addEventListener('scroll', () => {
+  if (isScrolling) return;
+
+  const currentSection = document.getElementById(sectionIds[currentIndex]);
+  const currentSectionBottom = currentSection.getBoundingClientRect().bottom + window.scrollY;
+  const currentSectionTop = currentSection.getBoundingClientRect().top + window.scrollY;
+
+  if (window.scrollY + window.innerHeight >= currentSectionBottom - 2) {
+	window.scrollBy(0, currentIndex + 1);
+  } else if (window.scrollY <= currentSectionTop + 2) {
+	window.scrollBy(0, currentIndex - 1);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 初期状態ではスクロールしない
+  // scrollToSection(currentIndex);
+});
+
+// setInterval(function() {
+//     window.scrollBy(0, -window.innerHeight);
+// }, 7000);
 
 
 // ハンバーガーメニュー
