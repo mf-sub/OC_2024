@@ -12,55 +12,134 @@
 // 	  }
 // 	});
 //   });
+var SIZE = 280;
+var tmp = {};
+loadImageToTmp();
+
+function loadImageToTmp() {
+  for (let i = 1; i <= SIZE; i++) {
+    const img = new Image();
+    tmp[i] = null;
+    const filename = `images/main_sp/main_sp_${String(SIZE - i + 1).padStart(5, '0')}.png`; // 逆順にロード
+    img.src = filename;
+    img.addEventListener("load", () => {
+      tmp[i] = img;
+    });
+  }
+}
+
+const sections = [
+  { start: 280, end: 240 },
+  { start: 239, end: 180 },
+  { start: 179, end: 137 },
+  { start: 136, end: 1 }
+];
+
+// const sections = [
+// 	{ start: 1105, end: 830 },
+// 	{ start: 831, end: 646 },
+// 	{ start: 645, end: 569 },
+// 	{ start: 560, end: 1 }
+//   ];
+
+function animateImages(start, end) {
+  let current = start;
+  const step = start < end ? 1 : -1;
+  const interval = setInterval(() => {
+    if (current === end) {
+      clearInterval(interval);
+    } else {
+      current += step;
+      if (tmp[current] && tmp[current].src) {
+        document.getElementById("anim_img").src = tmp[current].src;
+      }
+    }
+  }, 10); // 画像切り替えのスピード（ms）
+}
+
+let lastIndex = 0; // 最下部にあるbox1のインデックス
+
+$(document).ready(function() {
+  // $.scrollifyを初期化する
+  $.scrollify({
+    section: ".box",
+    scrollbars: false,
+    interstitialSection: "#header, #footer",
+    easing: "swing",
+    scrollSpeed: 1000,
+    setHeights: true,
+    before: function(i, panels) {
+      var ref = panels[i].attr("id");
+      $(".pagination .active").removeClass("active");
+      $(".pagination").find(`a[href="#${ref}"]`).addClass("active");
+
+      const currentSection = sections[i];
+      const previousSection = sections[lastIndex];
+
+      if (currentSection && previousSection) {
+        if (i > lastIndex) { // Forward direction
+          animateImages(previousSection.start, currentSection.start);
+        } else { // Backward direction
+          animateImages(currentSection.end, previousSection.end);
+        }
+      }
+      lastIndex = i;
+    },
+    afterRender: function() {
+      var pagination = "<ul class=\"pagination\">";
+      var activeClass = "";
+      $(".box").each(function(i) {
+        activeClass = "";
+        if (i === $.scrollify.currentIndex()) {
+          activeClass = "active";
+        }
+      });
+      $("#box1").append(pagination);
+      $(".pagination a").on("click", $.scrollify.move);
+    }
+  });
+
+  // ページロード時に最下部にスクロール
+  $('html, body').animate({ scrollTop: $(document).height() }, 100, function() {
+    // 最下部にスクロールした後、$.scrollifyを使用してbox1にスクロール
+    $.scrollify.move("#box1");
+  });
+});
+
+
 
 // 最下部スクロール
-window.onload = function() {
-    // ページ読み込み後に短い遅延を置いて一番下までスクロール
-    setTimeout(function() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }, 600); // 10ミリ秒の遅延
+// $.scrollify({
+// 	section : ".box",//1ページスクロールさせたいエリアクラス名
+// 	scrollbars:"false",//スクロールバー表示・非表示設定
+// 	interstitialSection : "#header,#footer",//ヘッダーフッターを認識し、1ページスクロールさせず表示されるように設定
+// 	easing: "swing", // 他にもlinearやeaseOutExpoといったjQueryのeasing指定可能
+// 	  scrollSpeed: 1000, // スクロール時の速度
+// 	  setHeights: true, // 要素の高さをwindowの高さに合わせるかどうか
 
-	// loadings_animation
-	const spinner = document.getElementById('loading');
-	if (spinner) { // spinnerがnullでないか確認
-        spinner.classList.add('loaded');
-	}
-};
+// 	//以下、ページネーション設定
+// 	before:function(i,panels) {
+// 	  var ref = panels[i].attr("data-section-name");
+// 		$(".pagination .active").removeClass("active");
+// 		$(".pagination").find("a[href=\"#" + ref + "\"]").addClass("active");
+// 	  },
+// 	  afterRender:function() {
+// 		var pagination = "<ul class=\"pagination\">";
+// 		var activeClass = "";
+// 		$(".box").each(function(i) {//1ページスクロールさせたいエリアクラス名を指定
+// 		  activeClass = "";
+// 		  if(i===$.scrollify.currentIndex()) {
+// 			activeClass = "active";
+// 		  }
+// 		//   pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\"><span class=\"hover-text\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</span></a></li>";
+// 		});
+// 		// pagination += "</ul>";
 
+// 		$("#box1").append(pagination);//はじめのエリアにページネーションを表示
+// 		$(".pagination a").on("click",$.scrollify.move);
+// 	  }
 
-
-// 最下部スクロール
-$.scrollify({
-	section : ".box",//1ページスクロールさせたいエリアクラス名
-	scrollbars:"false",//スクロールバー表示・非表示設定
-	interstitialSection : "#header,#footer",//ヘッダーフッターを認識し、1ページスクロールさせず表示されるように設定
-	easing: "swing", // 他にもlinearやeaseOutExpoといったjQueryのeasing指定可能
-	  scrollSpeed: 1000, // スクロール時の速度
-	  setHeights: true, // 要素の高さをwindowの高さに合わせるかどうか
-
-	//以下、ページネーション設定
-	before:function(i,panels) {
-	  var ref = panels[i].attr("data-section-name");
-		$(".pagination .active").removeClass("active");
-		$(".pagination").find("a[href=\"#" + ref + "\"]").addClass("active");
-	  },
-	  afterRender:function() {
-		var pagination = "<ul class=\"pagination\">";
-		var activeClass = "";
-		$(".box").each(function(i) {//1ページスクロールさせたいエリアクラス名を指定
-		  activeClass = "";
-		  if(i===$.scrollify.currentIndex()) {
-			activeClass = "active";
-		  }
-		//   pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\"><span class=\"hover-text\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</span></a></li>";
-		});
-		// pagination += "</ul>";
-
-		$("#box1").append(pagination);//はじめのエリアにページネーションを表示
-		$(".pagination a").on("click",$.scrollify.move);
-	  }
-
-	});
+// 	});
 
 
 // const sectionIds = ['top', 'thema', 'event', 'opencampus', 'access', 'ask'];
@@ -84,12 +163,8 @@ $.scrollify({
 //   // ページ読み込み後に短い遅延を置いて一番下までスクロール
 //   setTimeout(function() {
 // 	window.scrollTo(0, document.body.scrollHeight);
-// 	setTimeout(() => {
-// 	  // currentIndexを最後のセクションに設定し、isScrollingをfalseに設定
-// 	  currentIndex = sectionIds.length - 1;
-// 	  isScrolling = false;
-// 	}, 600);
 //   }, 600);
+// };
 
 //   // loadings_animation
 //   const spinner = document.getElementById('loading');
@@ -142,45 +217,45 @@ $('a[href*="index.html#"]').click(function () {
 
 
 // スクロールでpng画像差し替え
-var SIZE = 280;
+// var SIZE = 280;
 
-var tmp = {};
-	loadImageToTmp();
-	function loadImageToTmp(){
-		for(var i=10;i<=280;i++){
-			const _i = i;
-			const img = new Image();
-			tmp[_i] = null;
-			// img.src = "anim/hamoni_sp ("+_i+").png";
-			const filename = "images/main_sp/main_sp_" + String(_i).padStart(5, '0') + ".png";
-			img.src = filename;
-			img.addEventListener("load",()=>{
-				tmp[_i] = img;
-			})
-		}
-	}
+// var tmp = {};
+// 	loadImageToTmp();
+// 	function loadImageToTmp(){
+// 		for(var i=10;i<=280;i++){
+// 			const _i = i;
+// 			const img = new Image();
+// 			tmp[_i] = null;
+// 			// img.src = "anim/hamoni_sp ("+_i+").png";
+// 			const filename = "images/main_sp/main_sp_" + String(_i).padStart(5, '0') + ".png";
+// 			img.src = filename;
+// 			img.addEventListener("load",()=>{
+// 				tmp[_i] = img;
+// 			})
+// 		}
+// 	}
 
 
-const image = document.getElementById("anim_img");
+// const image = document.getElementById("anim_img");
 
-var SIZE = 280;
+// var SIZE = 280;
 
-const PX = 12; // 5px分の移動ごと画像を1枚進める
-const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(position:stickyでトップに来たら固定される)
-	$(window).scroll(function() {
-		const y = $(window).scrollTop();
-		const dy = y - offset.top;
-		if(offset.top<y&&y<offset.top+SIZE*PX){
-			$("#anim_img_box").css("top",0)
-			const i = Math.floor(dy / PX);
-			if(i<=10||i>=SIZE) return;
-			if(tmp[i].src) image.src = tmp[i].src;
-		}else if(y>=offset.top+SIZE*PX){
-			$("#anim_img_box").css("top","-"+(dy-SIZE*PX)); // スクロール分が終了したときに移動を始める
-		}
-	});
+// const PX = 6; // 5px分の移動ごと画像を1枚進める
+// const offset = $("#anim_img_box").offset(); // 画像を入れるdiv要素(position:stickyでトップに来たら固定される)
+// 	$(window).scroll(function() {
+// 		const y = $(window).scrollTop();
+// 		const dy = y - offset.top;
+// 		if(offset.top<y&&y<offset.top+SIZE*PX){
+// 			$("#anim_img_box").css("top",0)
+// 			const i = Math.floor(dy / PX);
+// 			if(i<=10||i>=SIZE) return;
+// 			if(tmp[i].src) image.src = tmp[i].src;
+// 		}else if(y>=offset.top+SIZE*PX){
+// 			$("#anim_img_box").css("top","-"+(dy-SIZE*PX)); // スクロール分が終了したときに移動を始める
+// 		}
+// 	});
 
-$("#anim_img_padding").height(SIZE*4.2);
+// $("#anim_img_padding").height(SIZE*4.2);
 
 
 // ウィンドウがスクロールされるたびにこの関数が呼び出される

@@ -79,7 +79,7 @@ body
 .bk
 {
 	position: absolute;
-    height: 3100px;
+    height: 4100px;
 	left: 0;
     right: 0;
 	z-index: -10;
@@ -581,8 +581,11 @@ footer ul img{
 /* abouts */
 .about, .event, .thema
 {
-	padding-top: 140px;
-	/* padding-bottom: 110px; */
+	padding-top: 70px;
+	padding-bottom: 70px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .about .top-text, .thema .top-text
@@ -658,14 +661,15 @@ footer ul img{
 
 .mainvisual
 {
-	height: 700px;
+	position: absolute;
+	z-index: -19;
 }
+
 .mainvisual .top-mv{
 	margin-top: 20px;
 	width: 100%;
 	height: auto;
 	z-index: 100;
-
   }
 
 
