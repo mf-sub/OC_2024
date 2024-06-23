@@ -1,58 +1,121 @@
+/* act
+----------------------------------------------*/
+// $(window).on('scroll load',function (){
+// 	let triggerClass = $('.jsAct');
+// 	animateClass = ('is-act');
+// 	$(triggerClass).each(function(){
+// 	  let scroll = $(window).scrollTop(),
+// 	  triggerTop   = $(this).offset().top,
+// 	  windowHeight = $(window).height();
+// 	  if (scroll > triggerTop - windowHeight){
+// 		$(this).addClass(animateClass);
+// 	  }
+// 	});
+//   });
 
 // 最下部スクロール
-const sectionIds = ['top', 'thema', 'event', 'opencampus', 'access', 'ask'];
-let currentIndex = sectionIds.length - 1; // 最後のセクションから開始
-let isScrolling = false;
-
-function scrollToSection(index) {
-  if (index >= 0 && index < sectionIds.length) {
-	const section = document.getElementById(sectionIds[index]);
-	section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	currentIndex = index;
-	isScrolling = true;
-
-	setTimeout(() => {
-	  isScrolling = false;
-	}, 1000); // スクロールの完了を待つ時間を設定
-  }
-}
-
 window.onload = function() {
-  // ページ読み込み後に短い遅延を置いて一番下までスクロール
-  setTimeout(function() {
-	window.scrollTo(0, document.body.scrollHeight);
-	setTimeout(() => {
-	  // currentIndexを最後のセクションに設定し、isScrollingをfalseに設定
-	  currentIndex = sectionIds.length - 1;
-	  isScrolling = false;
-	}, 600);
-  }, 10);
+    // ページ読み込み後に短い遅延を置いて一番下までスクロール
+    setTimeout(function() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }, 600); // 10ミリ秒の遅延
 
-  // loadings_animation
-  const spinner = document.getElementById('loading');
-  if (spinner) { // spinnerがnullでないか確認
-	spinner.classList.add('loaded');
-  }
+	// loadings_animation
+	const spinner = document.getElementById('loading');
+	if (spinner) { // spinnerがnullでないか確認
+        spinner.classList.add('loaded');
+	}
 };
 
-window.addEventListener('scroll', () => {
-  if (isScrolling) return;
 
-  const currentSection = document.getElementById(sectionIds[currentIndex]);
-  const currentSectionBottom = currentSection.getBoundingClientRect().bottom + window.scrollY;
-  const currentSectionTop = currentSection.getBoundingClientRect().top + window.scrollY;
 
-  if (window.scrollY + window.innerHeight >= currentSectionBottom - 2) {
-	window.scrollBy(0, currentIndex + 1);
-  } else if (window.scrollY <= currentSectionTop + 2) {
-	window.scrollBy(0, currentIndex - 1);
-  }
-});
+// 最下部スクロール
+$.scrollify({
+	section : ".box",//1ページスクロールさせたいエリアクラス名
+	scrollbars:"false",//スクロールバー表示・非表示設定
+	interstitialSection : "#header,#footer",//ヘッダーフッターを認識し、1ページスクロールさせず表示されるように設定
+	easing: "swing", // 他にもlinearやeaseOutExpoといったjQueryのeasing指定可能
+	  scrollSpeed: 1000, // スクロール時の速度
+	  setHeights: true, // 要素の高さをwindowの高さに合わせるかどうか
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 初期状態ではスクロールしない
-  // scrollToSection(currentIndex);
-});
+	//以下、ページネーション設定
+	before:function(i,panels) {
+	  var ref = panels[i].attr("data-section-name");
+		$(".pagination .active").removeClass("active");
+		$(".pagination").find("a[href=\"#" + ref + "\"]").addClass("active");
+	  },
+	  afterRender:function() {
+		var pagination = "<ul class=\"pagination\">";
+		var activeClass = "";
+		$(".box").each(function(i) {//1ページスクロールさせたいエリアクラス名を指定
+		  activeClass = "";
+		  if(i===$.scrollify.currentIndex()) {
+			activeClass = "active";
+		  }
+		//   pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\"><span class=\"hover-text\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</span></a></li>";
+		});
+		// pagination += "</ul>";
+
+		$("#box1").append(pagination);//はじめのエリアにページネーションを表示
+		$(".pagination a").on("click",$.scrollify.move);
+	  }
+
+	});
+
+
+// const sectionIds = ['top', 'thema', 'event', 'opencampus', 'access', 'ask'];
+// let currentIndex = sectionIds.length - 1; // 最後のセクションから開始
+// let isScrolling = false;
+
+// function scrollToSection(index) {
+//   if (index >= 0 && index < sectionIds.length) {
+// 	const section = document.getElementById(sectionIds[index]);
+// 	section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+// 	currentIndex = index;
+// 	isScrolling = true;
+
+// 	setTimeout(() => {
+// 	  isScrolling = false;
+// 	}, 1000); // スクロールの完了を待つ時間を設定
+//   }
+// }
+
+// window.onload = function() {
+//   // ページ読み込み後に短い遅延を置いて一番下までスクロール
+//   setTimeout(function() {
+// 	window.scrollTo(0, document.body.scrollHeight);
+// 	setTimeout(() => {
+// 	  // currentIndexを最後のセクションに設定し、isScrollingをfalseに設定
+// 	  currentIndex = sectionIds.length - 1;
+// 	  isScrolling = false;
+// 	}, 600);
+//   }, 600);
+
+//   // loadings_animation
+//   const spinner = document.getElementById('loading');
+//   if (spinner) { // spinnerがnullでないか確認
+// 	spinner.classList.add('loaded');
+//   }
+// };
+
+// window.addEventListener('scroll', () => {
+//   if (isScrolling) return;
+
+//   const currentSection = document.getElementById(sectionIds[currentIndex]);
+//   const currentSectionBottom = currentSection.getBoundingClientRect().bottom + window.scrollY;
+//   const currentSectionTop = currentSection.getBoundingClientRect().top + window.scrollY;
+
+//   if (window.scrollY + window.innerHeight >= currentSectionBottom - 20) {
+// 	window.scrollTo(0, sectionIds[currentIndex + 1]);
+//   } else if (window.scrollY <= currentSectionTop + 20) {
+// 	window.scrollTo(0, sectionIds[currentIndex - 1]);
+//   }
+// });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   // 初期状態ではスクロールしない
+//   // scrollToSection(currentIndex);
+// });
 
 // setInterval(function() {
 //     window.scrollBy(0, -window.innerHeight);

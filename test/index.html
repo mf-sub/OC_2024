@@ -16,7 +16,7 @@
 	</div>
 
 	<!--ヘッダー-->
-	<header class="header">
+	<header class="header"  id="header">
 		<div class="header__inner">
 			<nav class="header__nav nav" id="js-nav">
 				<ul class="nav__items nav-items" id="rink">
@@ -38,7 +38,7 @@
 
 
 	<!-- フッター -->
-	<footer>
+	<footer  id="footer">
 		<div class="footer-inner">
 			<img src="images/tzu_logo.png" alt="ロゴ" class="tzu-logo">
 
@@ -64,7 +64,7 @@
 <main>
 
 <div class="contents">
-	<div class="content-inner">
+	<div>
 
    <!-- <div class="video-container"> -->
 	<!-- <img src="images/親ページ.png" alt="メインビジュアル" class="fix"> -->
@@ -84,29 +84,30 @@
 
 
 	<div class="top-inner">
-		<div class="ask center-content" id="ask">
-			<div class="fadeUpTrigger ask_inner center-content_inner">
-				<h2 class="title en-font ask__title">ASK</h2>
-				<h3 class="sub-title">お願い</h3>
-				<p class="top-text">ご来場される方へ
-					<br>ご参加に際してのお願い</p>
-				<p class="radius-content">この先、ご来場のお願い。</p>
+		<section  id="box6" data-section-name="Area6" class="box">
+			<div class="ask top-con jsAct center-content">
+				<div class="is-act fadeUpTrigger ask_inner center-content_inner">
+					<h2 id="ask" class="title en-font ask__title">ASK</h2>
+					<h3 class="sub-title">お願い</h3>
+					<p class="top-text">ご来場される方へ
+						<br>ご参加に際してのお願い</p>
+					<p class="radius-content">この先、ご来場のお願い。</p>
+				</div>
 			</div>
-		</div>
 
-		<div class="access center-content" id="access">
-			<div class="fadeUpTrigger access_inner center-content_inner">
-				<h2 class="title en-font access__title">ACCESS</h2>
-				<h3 class="sub-title">アクセス</h3>
-				<p class="top-text">JR横浜線相原駅より
-					<br>無料スクールバスで5分(徒歩15分)</p>
-				<p class="radius-content">この先、アクセス案内。</p>
+			<div class="access top-con jsAct center-content">
+				<div class="is-act fadeUpTrigger access_inner center-content_inner">
+					<h2 id="access" class="title en-font access__title">ACCESS</h2>
+					<h3 class="sub-title">アクセス</h3>
+					<p class="top-text">JR横浜線相原駅より
+						<br>無料スクールバスで5分(徒歩15分)</p>
+					<p class="radius-content">この先、アクセス案内。</p>
+				</div>
 			</div>
-		</div>
-
-		<section id="opencampus" class="about center-content">
-			<div class="about_inner center-content_inner">
-				<h2 class="title en-font about__title">OPENCAMPUS</h2>
+		</section>
+		<section id="box4" data-section-name="Area4" class="box about top-con jsAct center-content">
+			<div class="is-act about_inner center-content_inner">
+				<h2  id="opencampus" class="title en-font about__title">OPENCAMPUS</h2>
 				<h3 class="sub-title">オープンキャンパスについて</h3>
 				<p class="top-text fadeUpTrigger">東京造形大学のオープンキャンパスでは毎年「テーマ」があります。
 					<br>オープンキャンパスのために結成される学生ユニットが主体となってコンセプトやテーマを決めてポスターやパンフレット、Tシャツ、グッズから装飾まで全てをデザインして運営しています。
@@ -116,9 +117,9 @@
 		</section>
 
 
-		<section id="event" class="event center-content">
-			<div class="event_inner center-content_inner">
-				<h2 class="title en-font event__title">EVENT</h2>
+		<section id="box3" data-section-name="Area3" class="box event top-con jsAct center-content">
+			<div class="is-act event_inner center-content_inner">
+				<h2  id="event" class="title en-font event__title">EVENT</h2>
 				<h3 class="sub-title">各専攻領域のイベント</h3>
 				<div class="major-icons fadeUpTrigger">
 				<ul class="major-icon">
@@ -209,9 +210,9 @@
 			</div>
 		</section>
 
-		<section id="thema" class="thema center-content">
-			<div class="thema_inner center-content_inner">
-				<h2 class="title en-font thema__title">THEME</h2>
+		<section id="box2" data-section-name="Area2" class="box thema top-con jsAct center-content">
+			<div class="is-act thema_inner center-content_inner">
+				<h2  id="thema" class="title en-font thema__title">THEME</h2>
 				<h3 class="sub-title">テーマ 「<span class="thema-red">この先、広大無辺。</span>」</h3>
 				<p class="top-text fadeUpTrigger">
 					東京造形大学は、専攻の枠を超えてさまざまな人々と繋がることができる場所です。そして、その繋がりが、自身の可能性を広げてくれます。
@@ -220,28 +221,32 @@
 		</section>
 
 		<!-- トップページのメインビジュ-->
-		<div class="mainvisual" id="top">
+		<div class="box is-act top-con mainvisual jsAct" id="box1" data-section-name="Area1">
 			<!-- <video muted autoplay class="top-mv">
 				<source src="images/mv.mp4" type="video/mp4">
 				あなたのブラウザはHTML5ビデオをサポートしていません。
 			</video> -->
-			<!-- <img src="images/mainvisual_completed.png" alt="SPメインビジュ" class="sp"> -->
+			<img src="images/mainvisual_completed.png" alt="SPメインビジュ" class="sp">
 		</div>
 	</div>
+
+
+
 </div>
 </div>
 
-
+<!--
 <div id="anim_img_padding"></div>
-<div style="height: 30px;"></div>
+<div id="box1" data-section-name="Area1"class="box" style="height: 30px;"></div> -->
 
 
 
 </main>
-<!-- スクロール -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- フェードイン	 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!-- スクロール -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
