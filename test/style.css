@@ -79,7 +79,7 @@ body
 .bk
 {
 	position: absolute;
-    height: 4100px;
+    /* height: 4100px; */
 	left: 0;
     right: 0;
 	z-index: -10;
@@ -99,11 +99,12 @@ body
 
 .ainm_img
 {
-	/* position: absolute; */
+	position: absolute;
+	left: 0;
+    right: 0;
 	width: auto;
     height: 100%;
-    top: 20px;
-    margin: auto;
+    margin: 0 auto;
     z-index: -10;
 }
 
@@ -511,19 +512,6 @@ footer ul img{
 }
 
 /* コンテンツ */
-.box
-{
-	/* display:flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center; */
-}
-.top-inner
-{
-	/* overflow: auto;
-    scroll-snap-type: y mandatory;
-    height: 100vh; */
-}
 .top-con
 {
 	text-align: center;
@@ -565,6 +553,7 @@ footer ul img{
 	line-height: normal;
 	border-radius: 60px;
 	border: 2px solid #26A9D7;
+	background-color: #fff;
 }
 
 
@@ -664,8 +653,7 @@ footer ul img{
 
 .mainvisual
 {
-	position: absolute;
-	z-index: -19;
+	width: 390px;
 }
 
 .mainvisual .top-mv{
@@ -677,12 +665,6 @@ footer ul img{
 
 
   /* 子ページ */
-.ko-inner
-{
-	/* overflow: auto;
-    scroll-snap-type: y mandatory;
-    height: 100vh; */
-}
 .ko
 {
 	text-align: center;

@@ -73,10 +73,28 @@ window.onload = function() {
   }, 100);
 };
 
+document.addEventListener("DOMContentLoaded", function() {
+    var contentsElement = document.querySelector('.top-inner');
+    var bkElement = document.querySelector('.bk');
 
-var SIZE = 280;
+    function setBkHeight() {
+        var contentsHeight = contentsElement.offsetHeight;
+        bkElement.style.height = contentsHeight + 'px';
+    }
+
+    // 初回の高さ設定
+    setBkHeight();
+
+    // ウィンドウリサイズ時に高さを再設定
+    window.addEventListener('resize', setBkHeight);
+
+    // コンテンツの更新などで高さが変わる場合は、適宜再設定する処理を追加することが推奨されます。
+});
+
+
+var SIZE = 290;
 var tmp = {};
-loadImageToTmp(280, 240);
+loadImageToTmp(290, 233);
 
 function loadImageToTmp(start, end) {
     let imagesLoaded = 0;
@@ -108,7 +126,7 @@ function loadImageToTmp(start, end) {
         const _i = i;
         const img = new Image();
         tmp[_i] = null;
-        const filename = "images/main_sp/main_sp_" + String(_i).padStart(5, '0') + ".png";
+        const filename = "images/mv_sp/mv_sp_" + String(_i).padStart(5, '0') + ".png";
         img.src = filename;
 
         img.addEventListener("load", () => {
@@ -129,7 +147,7 @@ function startImageSwitch(start, end) {
 	let interval = 20; // 初期値は20 milliseconds
 
     // box4 から box5 に移動する場合、もしくは box5 から box4 に移動する場合は interval を 10 に設定する
-    if (start === 85 && end === 136){
+    if (start === 95 && end === 146){
         interval = 10;
 		console.log("Interval set to 8");
     }
@@ -185,28 +203,32 @@ $(document).ready(function() {
             var previousIndex = sections.indexOf(lastIndex);
 
 			console.log("Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
-            if(-1 === previousIndex) {
-                    loadImageToTmp(1, 1);
+            if(-1 === previousIndex || -1 === currentIndex) {
+				if (ref === "box1") {
+					loadImageToTmp(290, 290);
+				} else if (ref === "box5" || ref === "footer") {
+					loadImageToTmp(14, 14);
+				}
             }
 			else if (currentIndex > previousIndex) {
-                if (ref === "box2") {
-                    loadImageToTmp(280, 240);
+				if (ref === "box2") {
+                    loadImageToTmp(290, 233);
                 } else if (ref === "box3") {
-                    loadImageToTmp(239, 180);
+                    loadImageToTmp(232, 186);
                 } else if (ref === "box4") {
-                    loadImageToTmp(179, 137);
+                    loadImageToTmp(185, 147);
                 } else if (ref === "box5") {
-                    loadImageToTmp(136, 10);
+                    loadImageToTmp(146, 14);
                 }
             } else if (currentIndex < previousIndex) {
                 if (ref === "box1") {
-                    loadImageToTmp(240, 280);
+                    loadImageToTmp(233, 290);
                 } else if (ref === "box2") {
-                    loadImageToTmp(180, 239);
+                    loadImageToTmp(186, 232);
                 } else if (ref === "box3") {
-                    loadImageToTmp(137, 179);
+                    loadImageToTmp(147, 185);
                 } else if (ref === "box4") {
-                    loadImageToTmp(85, 136);
+                    loadImageToTmp(95, 146);
                 }
             }
 
