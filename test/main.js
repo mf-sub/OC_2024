@@ -52,32 +52,53 @@ loadImageToTmp(280, 240);
 
 function loadImageToTmp(start, end) {
     let imagesLoaded = 0;
+	console.log("loadImageToTmp called with start:", start, "end:", end);
+	if (start > end) {
     for (var i = start; i >= end; i--) {
-        console.log("loadImageToTmp called with start:", start, "end:", end);
+        // console.log("loadImageToTmp called with start:", start, "end:", end);
         const _i = i;
         const img = new Image();
         tmp[_i] = null;
         const filename = "images/main_sp/main_sp_" + String(_i).padStart(5, '0') + ".png";
         img.src = filename;
-        console.log("Loading image:", filename);
+        // console.log("Loading image:", filename);
 
         img.addEventListener("load", () => {
             tmp[_i] = img;
             imagesLoaded++;
-            console.log(`Image ${_i} loaded`);
+            // console.log(`Image ${_i} loaded`);
 
             // Check if all images are loaded
             if (imagesLoaded === (start - end + 1)) {
-                console.log("All images loaded");
+                // console.log("All images loaded");
+                startImageSwitch(start, end);
+            }
+        });
+    }
+} else {
+	 for (var i = start; i <= end; i++) {
+        const _i = i;
+        const img = new Image();
+        tmp[_i] = null;
+        const filename = "images/main_sp/main_sp_" + String(_i).padStart(5, '0') + ".png";
+        img.src = filename;
+
+        img.addEventListener("load", () => {
+            tmp[_i] = img;
+            imagesLoaded++;
+
+            // Check if all images are loaded
+            if (imagesLoaded === (end - start + 1)) {
                 startImageSwitch(start, end);
             }
         });
     }
 }
+}
 
 function startImageSwitch(start, end) {
     let currentIndex = start;
-    const interval = 20; // 10 milliseconds
+    const interval = 20; // 20 milliseconds
     const imgElement = document.getElementById('anim_img');
 
     if (!imgElement) {
@@ -86,53 +107,85 @@ function startImageSwitch(start, end) {
     }
 
     function switchImage() {
-        if (currentIndex >= end) {
-            if (tmp[currentIndex]) {
-                imgElement.src = tmp[currentIndex].src;
-                console.log(`Image switched to ${tmp[currentIndex].src}`);
+        if (start > end) { // Forward direction
+            if (currentIndex >= end) {
+                if (tmp[currentIndex]) {
+                    imgElement.src = tmp[currentIndex].src;
+                    // console.log(`Image switched to ${tmp[currentIndex].src}`);
+                }
+                currentIndex--;
+                setTimeout(switchImage, interval);
+            } else {
+                console.log("Image switching completed");
             }
-            currentIndex--;
-            setTimeout(switchImage, interval);
-        } else {
-            console.log("Image switching completed");
+        } else { // Backward direction
+            if (currentIndex <= end) {
+                if (tmp[currentIndex]) {
+                    imgElement.src = tmp[currentIndex].src;
+                    console.log(`Image switched to ${tmp[currentIndex].src}`);
+                }
+                currentIndex++;
+                setTimeout(switchImage, interval);
+            } else {
+                console.log("Image switching completed");
+            }
         }
     }
 
     switchImage();
 }
 
-// Assuming there is an img element with id 'image-display' in your HTML
-// <img id="image-display" src="" alt="Image display">
-
-
 $(document).ready(function() {
-	$.scrollify({
-		section: ".box",
-		scrollbars: false,
-		interstitialSection: "#footer",
-		easing: "swing",
-		scrollSpeed: 1000,
-		setHeights: true,
-		before: function(i, panels) {
-			var ref = panels[i].attr("id"); // 現在のセクションの id を取得する
-			console.log("Current section id:", ref);
+    var lastIndex = 0;
+    var sections = ["box1", "box2", "box3", "box4", "box5"];
 
-			if(ref === "box2") {
-				loadImageToTmp(280, 240);
-			} else if(ref === "box3") {
-				loadImageToTmp(239, 180);
-			} else if(ref === "box4") {
-				loadImageToTmp(179, 137);
-			} else if(ref === "box5") {
-				loadImageToTmp(136, 1);
-			}
-		},
-	});
+    $.scrollify({
+        section: ".box",
+        scrollbars: false,
+        interstitialSection: "#footer #header",
+        easing: "swing",
+        scrollSpeed: 1000,
+        setHeights: true,
+        before: function(i, panels) {
+            var ref = panels[i].attr("id"); // 現在のセクションの id を取得する
+            // console.log("Current section id:", ref);
 
-	$('html, body').animate({ scrollTop: $(document).height() }, 1000, function() {
-		$.scrollify.move("#Area1");
-	});
+            var currentIndex = sections.indexOf(ref);
+            var previousIndex = sections.indexOf(lastIndex);
+			console.log("Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
+            if(-1 === previousIndex) {
+                    loadImageToTmp(1, 1);
+            }
+			else if (currentIndex > previousIndex) {
+                if (ref === "box2") {
+                    loadImageToTmp(280, 240);
+                } else if (ref === "box3") {
+                    loadImageToTmp(239, 180);
+                } else if (ref === "box4") {
+                    loadImageToTmp(179, 137);
+                } else if (ref === "box5") {
+                    loadImageToTmp(136, 1);
+                }
+            } else if (currentIndex < previousIndex) {
+                if (ref === "box1") {
+                    loadImageToTmp(240, 280);
+                } else if (ref === "box2") {
+                    loadImageToTmp(180, 239);
+                } else if (ref === "box3") {
+                    loadImageToTmp(137, 179);
+                } else if (ref === "box4") {
+                    loadImageToTmp(1, 136);
+                }
+            }
+            lastIndex = ref;
+        },
+    });
+
+    $('html, body').animate({ scrollTop: $(document).height() }, 100, function() {
+        $.scrollify.move("#Area1");
+    });
 });
+
 
 
 
