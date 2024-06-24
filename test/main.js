@@ -147,8 +147,12 @@ function startImageSwitch(start, end) {
 	let interval = 20; // 初期値は20 milliseconds
 
     // box4 から box5 に移動する場合、もしくは box5 から box4 に移動する場合は interval を 10 に設定する
-    if (start === 95 && end === 146){
+    if (start === 95 && end === 157){
         interval = 10;
+		console.log("Interval set to 8");
+    }
+	else if (start === 157 && end === 14){
+        interval = 15;
 		console.log("Interval set to 8");
     }
     const imgElement = document.getElementById('anim_img');
@@ -214,21 +218,21 @@ $(document).ready(function() {
 				if (ref === "box2") {
                     loadImageToTmp(290, 233);
                 } else if (ref === "box3") {
-                    loadImageToTmp(232, 186);
+                    loadImageToTmp(232, 180);
                 } else if (ref === "box4") {
-                    loadImageToTmp(185, 147);
+                    loadImageToTmp(179, 158);
                 } else if (ref === "box5") {
-                    loadImageToTmp(146, 14);
+                    loadImageToTmp(157, 14);
                 }
             } else if (currentIndex < previousIndex) {
                 if (ref === "box1") {
                     loadImageToTmp(233, 290);
                 } else if (ref === "box2") {
-                    loadImageToTmp(186, 232);
+                    loadImageToTmp(180, 232);
                 } else if (ref === "box3") {
-                    loadImageToTmp(147, 185);
+                    loadImageToTmp(158, 179);
                 } else if (ref === "box4") {
-                    loadImageToTmp(95, 146);
+                    loadImageToTmp(95, 157);
                 }
             }
 
