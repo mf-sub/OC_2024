@@ -66,6 +66,13 @@
 // });
 
 
+window.onload = function() {
+  // ページ読み込み後に短い遅延を置いて一番下までスクロール
+  setTimeout(function() {
+	window.scrollTo(0, document.body.scrollHeight);
+  }, 100);
+};
+
 
 var SIZE = 280;
 var tmp = {};
