@@ -676,14 +676,14 @@ footer ul img{
   /* 子ページ */
 .ko-inner
 {
-	overflow: auto;
+	/* overflow: auto;
     scroll-snap-type: y mandatory;
-    height: 100vh;
+    height: 100vh; */
 }
 .ko
 {
 	text-align: center;
-    scroll-snap-align: start;
+    /* scroll-snap-align: start; */
 }
 .ko-svg-1
 {

@@ -46,6 +46,27 @@
 
 // 	});
 
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var contentsElement = document.querySelector('main');
+//     var bkElement = document.querySelector('.bk');
+
+//     function setBkHeight() {
+//         var contentsHeight = contentsElement.offsetHeight;
+//         bkElement.style.height = contentsHeight + 'px';
+//     }
+
+//     // 初回の高さ設定
+//     setBkHeight();
+
+//     // ウィンドウリサイズ時に高さを再設定
+//     window.addEventListener('resize', setBkHeight);
+
+//     // コンテンツの更新などで高さが変わる場合は、適宜再設定する処理を追加することが推奨されます。
+// });
+
+
+
 var SIZE = 280;
 var tmp = {};
 loadImageToTmp(280, 240);
