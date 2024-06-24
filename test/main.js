@@ -98,7 +98,13 @@ function loadImageToTmp(start, end) {
 
 function startImageSwitch(start, end) {
     let currentIndex = start;
-    const interval = 20; // 20 milliseconds
+	let interval = 20; // 初期値は20 milliseconds
+
+    // box4 から box5 に移動する場合、もしくは box5 から box4 に移動する場合は interval を 10 に設定する
+    if (start === 85 && end === 136){
+        interval = 10;
+		console.log("Interval set to 8");
+    }
     const imgElement = document.getElementById('anim_img');
 
     if (!imgElement) {
@@ -122,7 +128,7 @@ function startImageSwitch(start, end) {
             if (currentIndex <= end) {
                 if (tmp[currentIndex]) {
                     imgElement.src = tmp[currentIndex].src;
-                    console.log(`Image switched to ${tmp[currentIndex].src}`);
+                    // console.log(`Image switched to ${tmp[currentIndex].src}`);
                 }
                 currentIndex++;
                 setTimeout(switchImage, interval);
@@ -131,8 +137,7 @@ function startImageSwitch(start, end) {
             }
         }
     }
-
-    switchImage();
+		switchImage();
 }
 
 $(document).ready(function() {
@@ -142,16 +147,15 @@ $(document).ready(function() {
     $.scrollify({
         section: ".box",
         scrollbars: false,
-        interstitialSection: "#footer #header",
+        interstitialSection: "#footer",
         easing: "swing",
         scrollSpeed: 1000,
         setHeights: true,
         before: function(i, panels) {
             var ref = panels[i].attr("id"); // 現在のセクションの id を取得する
-            // console.log("Current section id:", ref);
-
             var currentIndex = sections.indexOf(ref);
             var previousIndex = sections.indexOf(lastIndex);
+
 			console.log("Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
             if(-1 === previousIndex) {
                     loadImageToTmp(1, 1);
@@ -164,7 +168,7 @@ $(document).ready(function() {
                 } else if (ref === "box4") {
                     loadImageToTmp(179, 137);
                 } else if (ref === "box5") {
-                    loadImageToTmp(136, 1);
+                    loadImageToTmp(136, 10);
                 }
             } else if (currentIndex < previousIndex) {
                 if (ref === "box1") {
@@ -174,10 +178,11 @@ $(document).ready(function() {
                 } else if (ref === "box3") {
                     loadImageToTmp(137, 179);
                 } else if (ref === "box4") {
-                    loadImageToTmp(1, 136);
+                    loadImageToTmp(85, 136);
                 }
             }
-            lastIndex = ref;
+
+			lastIndex = ref;
         },
     });
 
