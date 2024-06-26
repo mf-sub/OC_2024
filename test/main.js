@@ -95,7 +95,7 @@ window.onload = function() {
 
 var SIZE = 290;
 var tmp = {};
-loadImageToTmp(290, 233);
+loadImageToTmp(289, 290);
 var lastIndex = 0;
 var sections = ["box1", "box2", "box3", "box4", "box5"];
 var ref = "";
@@ -209,34 +209,6 @@ $(document).ready(function() {
             currentIndex = sections.indexOf(ref);
             previousIndex = sections.indexOf(lastIndex);
 
-			$('a[href*="index.html#"]').click(function() {
-
-				document.getElementById('js-nav').classList.remove('active');
-				var elmHash = this.hash;
-				console.log("elmHash", elmHash);
-				var pos = $(elmHash).offset().top - 30;
-				$('html, body').animate({scrollTop: pos}, 500);
-					ref = $(elmHash).attr("id"); // 現在のセクションの id を取得する
-					currentIndex = sections.indexOf(ref);
-					previousIndex = sections.indexOf(lastIndex);
-					console.log("クリック Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
-					lastIndex = ref;
-					if(previousIndex === currentIndex) {
-						if (ref === "box1") {
-							loadImageToTmp(289, 290);
-						}
-					}else {
-						if (ref === "box1") {
-							loadImageToTmp(233, 290);
-						}
-					}
-					return false;
-					lastIndex = 0;
-					ref = "box1";
-					currentIndex = 0;
-					previousIndex = 0;
-			});
-
 			console.log("Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
             if(-1 === previousIndex || -1 === currentIndex) {
 				if (ref === "box1") {
@@ -246,7 +218,9 @@ $(document).ready(function() {
 				}
             }
 			else if (currentIndex > previousIndex) {
-				if (ref === "box2") {
+				if (ref === "box1") {
+					loadImageToTmp(290, 289);
+				}else if (ref === "box2") {
                     loadImageToTmp(290, 233);
                 } else if (ref === "box3") {
                     loadImageToTmp(232, 180);
