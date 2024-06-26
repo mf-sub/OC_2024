@@ -272,24 +272,15 @@ $(document).ready(function() {
     });
 
     $('html, body').animate({ scrollTop: $(document).height() }, 100, function() {
-        $.scrollify.move("#Area1");
+        // $.scrollify.move("#Area1");
     });
 });
 
-
-// 初回呼び出しを記録するフラグ
-let isFirstCall = true;
 
 // 背景要素の高さを調整する関数
 function setBkHeight() {
     // .contents 要素の高さを取得
     var contentHeight = document.querySelector('.contents').offsetHeight;
-
-    // 初回呼び出しの場合、高さに 700px を足す
-    if (isFirstCall) {
-        contentHeight += 700;
-        isFirstCall = false; // フラグを false に設定して、次回からは通常の高さを使用
-    }
 
     // .bk 要素の高さを .contents 要素の高さと同じに設定
     document.querySelectorAll('.bk').forEach(function(bk) {
@@ -297,8 +288,8 @@ function setBkHeight() {
     });
 }
 
-// DOM が完全に読み込まれた後に setBkHeight 関数を呼び出す
-document.addEventListener('DOMContentLoaded', function() {
+// load が完全に読み込まれた後に setBkHeight 関数を呼び出す
+window.addEventListener('load', function() {
     setBkHeight();
 });
 
