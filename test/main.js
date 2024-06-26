@@ -73,28 +73,34 @@ window.onload = function() {
   }, 100);
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-    var contentsElement = document.querySelector('.top-inner');
-    var bkElement = document.querySelector('.bk');
+// window.addEventListener("DOMContentLoaded", function() {
+//     var contentsElement = document.querySelector('.top-inner');
+//     var bkElement = document.querySelector('.bk');
 
-    function setBkHeight() {
-        var contentsHeight = contentsElement.offsetHeight;
-        bkElement.style.height = contentsHeight + 'px';
-    }
+//     function setBkHeight() {
+//         var contentsHeight = contentsElement.offsetHeight;
+//         bkElement.style.height = contentsHeight + 'px';
+// 		console.log("contentsElement", contentsElement, "contentsHeight", contentsHeight, "bkElement.style.height", bkElement.style.height);
+//     }
 
-    // 初回の高さ設定
-    setBkHeight();
+//     // 初回の高さ設定
+//     setBkHeight();
+// 	console.log("setBkHeight", bkElement.style.height);
 
-    // ウィンドウリサイズ時に高さを再設定
-    window.addEventListener('resize', setBkHeight);
-
-    // コンテンツの更新などで高さが変わる場合は、適宜再設定する処理を追加することが推奨されます。
-});
+//     // ウィンドウリサイズ時に高さを再設定
+//     window.addEventListener('resize', setBkHeight);
+//     // コンテンツの更新などで高さが変わる場合は、適宜再設定する処理を追加することが推奨されます。
+// });
 
 
 var SIZE = 290;
 var tmp = {};
 loadImageToTmp(290, 233);
+var lastIndex = 0;
+var sections = ["box1", "box2", "box3", "box4", "box5"];
+var ref = "";
+var currentIndex = "";
+var previousIndex = "";
 
 function loadImageToTmp(start, end) {
     let imagesLoaded = 0;
@@ -144,16 +150,16 @@ function loadImageToTmp(start, end) {
 
 function startImageSwitch(start, end) {
     let currentIndex = start;
-	let interval = 20; // 初期値は20 milliseconds
+	let interval = 18; // 初期値は20 milliseconds
 
     // box4 から box5 に移動する場合、もしくは box5 から box4 に移動する場合は interval を 10 に設定する
     if (start === 95 && end === 157){
-        interval = 10;
-		console.log("Interval set to 8");
+        interval = 6;
+		console.log("Interval set to", interval);
     }
 	else if (start === 157 && end === 14){
-        interval = 15;
-		console.log("Interval set to 8");
+        interval = 12;
+		console.log("Interval set to", interval);
     }
     const imgElement = document.getElementById('anim_img');
 
@@ -191,9 +197,6 @@ function startImageSwitch(start, end) {
 }
 
 $(document).ready(function() {
-    var lastIndex = 0;
-    var sections = ["box1", "box2", "box3", "box4", "box5"];
-
     $.scrollify({
         section: ".box",
         scrollbars: false,
@@ -202,16 +205,44 @@ $(document).ready(function() {
         scrollSpeed: 1000,
         setHeights: true,
         before: function(i, panels) {
-            var ref = panels[i].attr("id"); // 現在のセクションの id を取得する
-            var currentIndex = sections.indexOf(ref);
-            var previousIndex = sections.indexOf(lastIndex);
+            ref = panels[i].attr("id"); // 現在のセクションの id を取得する
+            currentIndex = sections.indexOf(ref);
+            previousIndex = sections.indexOf(lastIndex);
+
+			$('a[href*="index.html#"]').click(function() {
+
+				document.getElementById('js-nav').classList.remove('active');
+				var elmHash = this.hash;
+				console.log("elmHash", elmHash);
+				var pos = $(elmHash).offset().top - 30;
+				$('html, body').animate({scrollTop: pos}, 500);
+					ref = $(elmHash).attr("id"); // 現在のセクションの id を取得する
+					currentIndex = sections.indexOf(ref);
+					previousIndex = sections.indexOf(lastIndex);
+					console.log("クリック Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
+					lastIndex = ref;
+					if(previousIndex === currentIndex) {
+						if (ref === "box1") {
+							loadImageToTmp(289, 290);
+						}
+					}else {
+						if (ref === "box1") {
+							loadImageToTmp(233, 290);
+						}
+					}
+					return false;
+					lastIndex = 0;
+					ref = "box1";
+					currentIndex = 0;
+					previousIndex = 0;
+			});
 
 			console.log("Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
             if(-1 === previousIndex || -1 === currentIndex) {
 				if (ref === "box1") {
-					loadImageToTmp(290, 290);
+					loadImageToTmp(290, 289);
 				} else if (ref === "box5" || ref === "footer") {
-					loadImageToTmp(14, 14);
+					loadImageToTmp(15, 14);
 				}
             }
 			else if (currentIndex > previousIndex) {
@@ -245,6 +276,80 @@ $(document).ready(function() {
     });
 });
 
+
+// 初回呼び出しを記録するフラグ
+let isFirstCall = true;
+
+// 背景要素の高さを調整する関数
+function setBkHeight() {
+    // .contents 要素の高さを取得
+    var contentHeight = document.querySelector('.contents').offsetHeight;
+
+    // 初回呼び出しの場合、高さに 700px を足す
+    if (isFirstCall) {
+        contentHeight += 700;
+        isFirstCall = false; // フラグを false に設定して、次回からは通常の高さを使用
+    }
+
+    // .bk 要素の高さを .contents 要素の高さと同じに設定
+    document.querySelectorAll('.bk').forEach(function(bk) {
+        bk.style.height = contentHeight + 'px';
+    });
+}
+
+// DOM が完全に読み込まれた後に setBkHeight 関数を呼び出す
+document.addEventListener('DOMContentLoaded', function() {
+    setBkHeight();
+});
+
+// ウィンドウのサイズが変更されたときに setBkHeight 関数を呼び出す
+window.addEventListener('resize', setBkHeight);
+
+// $('a[href*="index.html#"]').click(function() {
+
+// 	document.getElementById('js-nav').classList.remove('active');
+// 	var elmHash = this.hash;
+// 	console.log("elmHash", elmHash);
+// 	var pos = $(elmHash).offset().top - 30;
+// 	$('html, body').animate({scrollTop: pos}, 500);
+// 		ref = $(elmHash).attr("id"); // 現在のセクションの id を取得する
+// 		currentIndex = sections.indexOf(ref);
+// 		previousIndex = sections.indexOf(lastIndex);
+// 		console.log("クリック Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
+// 		lastIndex = ref;
+// 		if(previousIndex === currentIndex) {
+// 			if (ref === "box1") {
+// 				lastIndex = 0;
+// 				previousIndex = 0;
+// 				ref = "box1";
+// 				console.log("クリック1 Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
+// 				loadImageToTmp(289, 290);
+// 			}
+// 		}
+// 		else if (currentIndex > previousIndex) {
+// 			if (ref === "box2") {
+// 				loadImageToTmp(290, 233);
+// 			} else if (ref === "box3") {
+// 				loadImageToTmp(232, 180);
+// 			} else if (ref === "box4") {
+// 				loadImageToTmp(179, 158);
+// 			} else if (ref === "box5") {
+// 				loadImageToTmp(157, 14);
+// 			}
+// 		} else if (currentIndex < previousIndex) {
+// 			if (ref === "box1") {
+// 				lastIndex = 0;
+// 				previousIndex = 0;
+// 				ref = "box1";
+// 				console.log("クリック1 Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
+// 				loadImageToTmp(233, 290);
+// 			}
+// 		}
+// 	lastIndex = 0;
+// 	previousIndex = 0;
+// 	ref = "box1";
+// 	return false;
+// });
 
 
 
@@ -347,13 +452,14 @@ document.getElementById('js-nav').classList.toggle('active');
 });
 
 // メニューからスクロール
-$('a[href*="index.html#"]').click(function () {
-	document.getElementById('js-nav').classList.remove('active');
-	var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
-	var pos = $(elmHash).offset().top - 30;  //idの上部の距離を取得
-	$('html, body').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
-	return false;
-});
+// $('a[href*="index.html#"]').click(function () {
+// 	document.getElementById('js-nav').classList.remove('active');
+// 	var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+// 	console.log("elmHash", elmHash);
+// 	var pos = $(elmHash).offset().top - 30;  //idの上部の距離を取得
+// 	$('html, body').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
+// 	return false;
+// });
 
 
 // スクロールでpng画像差し替え
