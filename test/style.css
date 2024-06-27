@@ -159,9 +159,13 @@ body
 	margin: auto;
 	z-index:998;
 	background-color: #fff;
+  }
+  .shutter-up
+  {
 	-webkit-animation: byeShutter 6.5s forwards;
 	animation: byeShutter 6.5s forwards;
   }
+
   @keyframes byeShutter {
 	70% {
 	  opacity: 1;
@@ -171,6 +175,7 @@ body
 	  display: none;
 	  z-index: -5;
 	}
+
   }
 
   /* fadeUp */
@@ -885,7 +890,7 @@ footer ul img{
 }
 .place-flex
 {
-	display: inline-flex;
+	display: flex;
     text-align: justify;
     align-items: center;
 	max-width: 270px;
@@ -911,7 +916,7 @@ footer ul img{
 	letter-spacing: 0.75px;
 }
 
-.md-1 .ko-text, .ia-4 .ko-text, .ia-5 .ko-text, .sc-1 .ko-text, .sc-3 .ko-text, .sc-6 .ko-text, .oth-3 .ko-text, .oth-7 .ko-text, .ani-6 .ko-text
+.md-1 .ko-text, .ia-4 .ko-text, .ia-5 .ko-text, .sc-1 .ko-text, .sc-3 .ko-text, .sc-6 .ko-text, .oth-3 .ko-text, .oth-7 .ko-text, .ani-6 .ko-text, .oth-1 .ko-text
 {
 	text-align: center;
 }
