@@ -19,7 +19,7 @@
 		<div class="header__inner">
 			<nav class="header__nav nav" id="js-nav">
 				<ul class="nav__items nav-items" id="rink">
-					<li class="nav-items__item en-font"><a href="index.html">TOP</a></li>
+					<li class="nav-items__item en-font"><a href="index.html#box1">TOP</a></li>
 					<li class="nav-items__item"><a href="index_gd.html">グラフィック</a></li>
 					<li class="nav-items__item"><a href="index_photo.html">写真</a></li>
 					<li class="nav-items__item"><a href="index_film.html">映画・映像</a></li>
@@ -204,8 +204,8 @@
 		</section>
 
 		<!-- トップページのメインビジュ-->
-		<div id="box1" data-section-name="top" class="box is-act top-con mainvisual jsAct">
-		</div>
+		<section id="box1" data-section-name="top" class="box is-act top-con mainvisual jsAct">
+		</section>
 	</div>
 
 
@@ -219,25 +219,6 @@ window.onload = function() {
 	  window.scrollTo(0, document.body.scrollHeight);
 	}, 100);
   };
-
-  // 背景要素の高さを調整する関数
-function setBkHeight() {
-    // .contents 要素の高さを取得
-    var contentHeight = document.querySelector('.contents').offsetHeight;
-
-    // .bk 要素の高さを .contents 要素の高さと同じに設定
-    document.querySelectorAll('.bk').forEach(function(bk) {
-        bk.style.height = contentHeight + 'px';
-    });
-}
-
-// load が完全に読み込まれた後に setBkHeight 関数を呼び出す
-window.addEventListener('load', function() {
-    setBkHeight();
-});
-
-// ウィンドウのサイズが変更されたときに setBkHeight 関数を呼び出す
-window.addEventListener('resize', setBkHeight);
 
 </script>
 <!-- フェードイン	 -->

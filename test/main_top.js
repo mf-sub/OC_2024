@@ -146,8 +146,8 @@ $(document).ready(function() {
                     loadImageToTmp(95, 157);
                 }
             }
-
 			lastIndex = ref;
+			setBkHeightForBoxes();
         },
     });
 
@@ -157,21 +157,38 @@ $(document).ready(function() {
 });
 
 
-// 背景要素の高さを調整する関数
-function setBkHeight() {
-    // .contents 要素の高さを取得
-    var contentHeight = document.querySelector('.contents').offsetHeight;
+//   // 背景要素の高さを調整する関数
+//   function setBkHeight() {
+//     // .contents 要素の高さを取得
+//     var contentHeight = document.querySelector('.contents').offsetHeight;
 
-    // .bk 要素の高さを .contents 要素の高さと同じに設定
+//     // .bk 要素の高さを .contents 要素の高さと同じに設定
+//     document.querySelectorAll('.bk').forEach(function(bk) {
+//         bk.style.height = contentHeight + 'px';
+//     });
+// }
+
+// // load が完全に読み込まれた後に setBkHeight 関数を呼び出す
+// window.addEventListener('load', setBkHeight);
+
+// // ウィンドウのサイズが変更されたときに setBkHeight 関数を呼び出す
+// window.addEventListener('resize', setBkHeight);
+
+// box1とbox2の高さをbkに設定する関数
+function setBkHeightForBoxes() {
+    // box1の高さを取得
+    var box1Height = document.querySelector('#box1').scrollHeight;
+    var box2Height = document.querySelector('#box2').scrollHeight;
+	var box3Height = document.querySelector('#box3').scrollHeight;
+	var box4Height = document.querySelector('#box4').scrollHeight;
+	var box5Height = document.querySelector('#box5').scrollHeight;
+
+	// .bk 要素の高さを .contents 要素の高さと同じに設定
     document.querySelectorAll('.bk').forEach(function(bk) {
-        bk.style.height = contentHeight + 'px';
+        bk.style.height = box1Height + box2Height + box3Height + box4Height + box5Height + 'px';
+		// console.log("box1Height", box1Height, "box2Height", box2Height);
+		// console.log("bk height set to", box1Height + box2Height + box3Height + box4Height + box5Height);
     });
 }
-
-// load が完全に読み込まれた後に setBkHeight 関数を呼び出す
-window.addEventListener('load', function() {
-    setBkHeight();
-});
-
-// ウィンドウのサイズが変更されたときに setBkHeight 関数を呼び出す
-window.addEventListener('resize', setBkHeight);
+// ウィンドウのサイズが変更されたときに高さを設定する関数を呼び出す
+window.addEventListener('resize', setBkHeightForBoxes);
