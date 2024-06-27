@@ -24,10 +24,7 @@ body{
   background-size: 100% auto,auto ;
 }
 main{
-  align-items:center ;
- /* width: 1000px;*/
   margin: 0 auto;/*コンテンツ部分を真ん中に持ってくるための指定。widthを指定した上で、margin:0 auto を指定する。bodyには指定しない。意味ないから*/
-
 }
 
 img {vertical-align: bottom; /*画像の上下方向の隙間を無くすために指定*/
@@ -760,6 +757,7 @@ footer ul img{
 .ko-title-div
 {
 	position: relative;
+	margin: 0 auto;
 }
 .ko-title
 {
@@ -782,7 +780,7 @@ footer ul img{
 	left: 0;
 	right: 0;
 	top: 0;
-	max-width: 330px;
+	max-width: 340px;
 	height: auto;
 	margin: 0 auto;
 }
@@ -926,6 +924,11 @@ footer ul img{
 	color: #EA0029;
 }
 
+.td-title .ko-title_long
+{
+	padding: 21px 0 21px 8px;
+}
+
 /* 子ページアイコン */
 .ko-load
 {
@@ -938,7 +941,6 @@ footer ul img{
 	width: 165px;
 	height: auto;
 }
-
 
 .image-container img {
 	width: 70px;
