@@ -212,6 +212,34 @@
 </div>
 
 </main>
+<script>
+window.onload = function() {
+	// ページ読み込み後に短い遅延を置いて一番下までスクロール
+	setTimeout(function() {
+	  window.scrollTo(0, document.body.scrollHeight);
+	}, 100);
+  };
+
+  // 背景要素の高さを調整する関数
+function setBkHeight() {
+    // .contents 要素の高さを取得
+    var contentHeight = document.querySelector('.contents').offsetHeight;
+
+    // .bk 要素の高さを .contents 要素の高さと同じに設定
+    document.querySelectorAll('.bk').forEach(function(bk) {
+        bk.style.height = contentHeight + 'px';
+    });
+}
+
+// load が完全に読み込まれた後に setBkHeight 関数を呼び出す
+window.addEventListener('load', function() {
+    setBkHeight();
+});
+
+// ウィンドウのサイズが変更されたときに setBkHeight 関数を呼び出す
+window.addEventListener('resize', setBkHeight);
+
+</script>
 <!-- フェードイン	 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <!-- スクロール -->
