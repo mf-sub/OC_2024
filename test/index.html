@@ -19,7 +19,7 @@
 		<div class="header__inner">
 			<nav class="header__nav nav" id="js-nav">
 				<ul class="nav__items nav-items" id="rink">
-					<li class="nav-items__item en-font"><a href="index.html">TOP</a></li>
+					<li class="nav-items__item en-font"><a href="#box1" id="menu">TOP</a></li>
 					<li class="nav-items__item"><a href="index_gd.html">グラフィック</a></li>
 					<li class="nav-items__item"><a href="index_photo.html">写真</a></li>
 					<li class="nav-items__item"><a href="index_film.html">映画・映像</a></li>
@@ -67,7 +67,7 @@
 		</div>
 	</footer>
 <main>
-<div class="contents">
+<!-- <div class="contents"> -->
 
 	<div class="bk">
 		<div id="anim_img_box">
@@ -205,20 +205,23 @@
 
 		<!-- トップページのメインビジュ-->
 		<section id="box1" data-section-name="top" class="box is-act top-con mainvisual jsAct">
+			<div id="mv">
+			</div>
 		</section>
 	</div>
 
 
+<!-- </div> -->
+<div id="mv" class="page-top">
 </div>
-
 </main>
 <script>
-window.onload = function() {
-	// ページ読み込み後に短い遅延を置いて一番下までスクロール
-	setTimeout(function() {
-	  window.scrollTo(0, document.body.scrollHeight);
-	}, 100);
-  };
+// window.onload = function() {
+// 	// ページ読み込み後に短い遅延を置いて一番下までスクロール
+// 	setTimeout(function() {
+// 	  window.scrollTo(0, document.body.scrollHeight);
+// 	}, 100);
+//   };
 
 </script>
 <!-- フェードイン	 -->

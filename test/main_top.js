@@ -103,7 +103,18 @@ function startImageSwitch(start, end) {
 		switchImage();
 }
 
+    // box1がクリックされたら$.scrollifyを起動する
+    $('#menu').on('click', function() {
+		console.log("box1 clicked");
+		$.scrollify;
+    });
+
+
 $(document).ready(function() {
+	$('html, body').animate({ scrollTop: $(document).height() }, 100, function() {
+        $.scrollify.move("#top");
+		console.log("Scrolled to top");
+    });
     $.scrollify({
         section: ".box",
         scrollbars: false,
@@ -151,9 +162,6 @@ $(document).ready(function() {
         },
     });
 
-    $('html, body').animate({ scrollTop: $(document).height() }, 100, function() {
-        $.scrollify.move("#top");
-    });
 });
 
 
@@ -187,7 +195,7 @@ function setBkHeightForBoxes() {
     document.querySelectorAll('.bk').forEach(function(bk) {
         bk.style.height = box1Height + box2Height + box3Height + box4Height + box5Height + 'px';
 		// console.log("box1Height", box1Height, "box2Height", box2Height);
-		// console.log("bk height set to", box1Height + box2Height + box3Height + box4Height + box5Height);
+		console.log("bk height set to", box1Height + box2Height + box3Height + box4Height + box5Height);
     });
 }
 // ウィンドウのサイズが変更されたときに高さを設定する関数を呼び出す
