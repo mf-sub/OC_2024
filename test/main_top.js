@@ -2,8 +2,6 @@
 var SIZE = 290;
 var tmp = {};
 loadImageToTmp(289, 290);
-var lastIndex = 0;
-var sections = ["box1", "box2", "box3", "box4", "box5"];
 var ref = "box1";
 var currentIndex = "";
 var previousIndex = "";
@@ -62,11 +60,9 @@ function startImageSwitch(start, end) {
     // box4 から box5 に移動する場合、もしくは box5 から box4 に移動する場合は interval を 10 に設定する
     if (start === 95 && end === 157){
         interval = 6;
-		console.log("Interval set to", interval);
     }
 	else if (start === 157 && end === 14){
         interval = 12;
-		console.log("Interval set to", interval);
     }
     const imgElement = document.getElementById('anim_img');
 
@@ -103,18 +99,23 @@ function startImageSwitch(start, end) {
 		switchImage();
 }
 
-    // box1がクリックされたら$.scrollifyを起動する
-    $('#menu').on('click', function() {
-		console.log("box1 clicked");
-		$.scrollify;
-    });
-
 
 $(document).ready(function() {
-	$('html, body').animate({ scrollTop: $(document).height() }, 100, function() {
-        $.scrollify.move("#top");
-		console.log("Scrolled to top");
-    });
+	var lastIndex = 0;
+	var sections = ["box1", "box2", "box3", "box4", "box5", "footer"];
+
+	$('#menu').on('click', function() {
+		console.log("box1 clicked");
+	  // panelsを取得
+	  var panels = $.map($(".box").add("#footer"), function(element) {
+		return $(element);
+	});
+
+	lastIndex = 0;
+	  // before関数を手動で呼び出す
+	  beforeScrollify(5, panels);
+  });
+
     $.scrollify({
         section: ".box",
         scrollbars: false,
@@ -122,8 +123,10 @@ $(document).ready(function() {
         easing: "swing",
         scrollSpeed: 1000,
         setHeights: true,
-        before: function(i, panels) {
-            ref = panels[i].attr("id"); // 現在のセクションの id を取得する
+		before: beforeScrollify,
+	});
+	function beforeScrollify(i, panels) {
+            ref =$(panels[i]).attr("id");// 現在のセクションの id を取得する
             currentIndex = sections.indexOf(ref);
             previousIndex = sections.indexOf(lastIndex);
 			console.log("panels:", panels, "i", i, "Current section id:", ref, "Current index:", currentIndex, "Previous index:", previousIndex);
@@ -143,9 +146,10 @@ $(document).ready(function() {
                     loadImageToTmp(232, 180);
                 } else if (ref === "box4") {
                     loadImageToTmp(179, 158);
-                } else if (ref === "box5") {
+                } else if (ref === "box5" || ref === "footer") {
                     loadImageToTmp(157, 14);
                 }
+
             } else if (currentIndex < previousIndex) {
                 if (ref === "box1") {
                     loadImageToTmp(233, 290);
@@ -158,11 +162,10 @@ $(document).ready(function() {
                 }
             }
 			lastIndex = ref;
+			console.log("Last index set to", lastIndex);
 			setBkHeightForBoxes();
-        },
+        }
     });
-
-});
 
 
 //   // 背景要素の高さを調整する関数
