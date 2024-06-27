@@ -34,6 +34,44 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const apngImages = document.querySelectorAll('.ko-title_frame');
+	const keyImages = document.querySelectorAll('.ko-key');
+
+    apngImages.forEach(apngImage => {
+        const apngSrc = apngImage.src;
+        let timer;
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const target = entry.target;
+                if (entry.isIntersecting) {
+                    target.classList.add('title-up');
+                    timer = setTimeout(() => {
+                        const newImg = target.cloneNode();
+                        target.src = apngSrc;
+                    }, 70);
+                } else {
+                    target.classList.remove('title-up');
+                    clearTimeout(timer);
+                }
+            });
+        });
+
+        observer.observe(apngImage);
+    });
+
+    setTimeout(() => {
+        keyImages.forEach(keyImage => {
+            const keySrc = keyImage.src;
+			// keyImages.classList.add('key-up');
+            const keynewImg = keyImage.cloneNode();
+            keyImage.src = keySrc;
+        });
+    }, 2500);
+});
+
+
 
 // テキストアニメーション
 // 動きのきっかけとなるアニメーションの名前を定義

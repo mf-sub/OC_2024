@@ -10,14 +10,14 @@ var previousIndex = "";
 
 function loadImageToTmp(start, end) {
     let imagesLoaded = 0;
-	console.log("loadImageToTmp called with start:", start, "end:", end);
 	if (start > end) {
     for (var i = start; i >= end; i--) {
+		console.log("loadImageToTmp called with start:", start, "end:", end);
         // console.log("loadImageToTmp called with start:", start, "end:", end);
         const _i = i;
         const img = new Image();
         tmp[_i] = null;
-        const filename = "images/main_sp/main_sp_" + String(_i).padStart(5, '0') + ".png";
+        const filename = "images/mv_sp//mv_sp_" + String(_i).padStart(5, '0') + ".png";
         img.src = filename;
         // console.log("Loading image:", filename);
 
@@ -35,10 +35,11 @@ function loadImageToTmp(start, end) {
     }
 } else {
 	 for (var i = start; i <= end; i++) {
+		console.log("loadImageToTmp called with start:", start, "end:", end);
         const _i = i;
         const img = new Image();
         tmp[_i] = null;
-        const filename = "images/mv_sp/mv_sp_" + String(_i).padStart(5, '0') + ".png";
+        const filename = "images/mv_sp//mv_sp_" + String(_i).padStart(5, '0') + ".png";
         img.src = filename;
 
         img.addEventListener("load", () => {

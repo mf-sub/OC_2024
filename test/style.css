@@ -743,19 +743,69 @@ footer ul img{
 	letter-spacing: 1.2px;
 	max-width: 300px;
 }
-
+.ko-title-div
+{
+	position: relative;
+}
 .ko-title
 {
 	color: #EA0029;
-	padding: 8px 18px;
+	padding: 21px 0;
 	font-size: 23px;
 	font-weight: 500;
 	line-height: normal;
-	border: 3px solid #26A9D7;
+	border: none;
 	letter-spacing: -0.2px;
 	line-height: 27px;
+	/* background-image: url(images/title_frame.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% auto; */
+}
+.ko-title_frame, .ko-key
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	max-width: 330px;
+	height: auto;
+	margin: 0 auto;
 }
 
+.title-up
+{
+	-webkit-animation: titleUpAnime 0.5s forwards;
+	animation: titleUpAnime 0.5s forwards;
+	opacity:0;
+	}
+
+	@keyframes titleUpAnime{
+	  from {
+		opacity: 0;
+	  }
+
+	  to {
+		opacity: 1;
+	  }
+}
+
+.key-up
+{
+	-webkit-animation: titleUpAnime 3.5s forwards;
+	animation: titleUpAnime 3.5s forwards;
+	opacity:0;
+	}
+
+	@keyframes titleUpAnime{
+	  from {
+		opacity: 0;
+	  }
+
+	  to {
+		opacity: 1;
+	  }
+}
 .ko-space_inner
 {
 	display: flex;
@@ -822,7 +872,7 @@ footer ul img{
 	font-size: 20px;
 	letter-spacing: -0.4px;
 	width: 333px;
-	padding: 8px 0;
+	padding: 21px 0;
 }
 .place-flex
 {
@@ -852,7 +902,7 @@ footer ul img{
 	letter-spacing: 0.75px;
 }
 
-.md-1 .ko-text, .ia-4 .ko-text, .ia-5 .ko-text, .sc-1 .ko-text, .sc-3 .ko-text, .sc-6 .ko-text, .oth-3 .ko-text, .oth-7 .ko-text
+.md-1 .ko-text, .ia-4 .ko-text, .ia-5 .ko-text, .sc-1 .ko-text, .sc-3 .ko-text, .sc-6 .ko-text, .oth-3 .ko-text, .oth-7 .ko-text, .ani-6 .ko-text
 {
 	text-align: center;
 }
