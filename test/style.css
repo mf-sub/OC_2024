@@ -299,7 +299,7 @@ body
   }
 
   .nav__items {
-	margin: 80px 20px auto auto;
+	margin: 70px 20px auto auto;
   }
 
 
@@ -321,8 +321,8 @@ body
 	width: 100%;
 	display: block;
 	text-align: right;
-	font-size: 18px;
-	margin-bottom: 24px;
+	font-size: 15px;
+	margin-bottom: 	15px;
   }
   .nav-items__item a:hover {
 	text-decoration: underline;
@@ -555,8 +555,12 @@ footer ul img{
 	border-radius: 60px;
 	border: 2px solid #26A9D7;
 	background-color: #fff;
+	color: #26A9D7;
 }
-
+.radius-content:hover
+{
+	color: #EA0029;
+}
 
 /* ASK 固定値（px） / 基準幅（px） * 100vw*/
 .ask
@@ -628,6 +632,11 @@ footer ul img{
 	font-weight: 500;
 	line-height: normal;
 	letter-spacing: 1px;
+}
+
+.icon-hover:hover .major-icon_text
+{
+	color: #EA0029;
 }
 
 /* Thema */
@@ -930,3 +939,5 @@ footer ul img{
 	width: 70px;
     height: 74px;
 }
+
+

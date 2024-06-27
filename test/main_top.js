@@ -150,9 +150,11 @@ $(document).ready(function() {
                     loadImageToTmp(232, 180);
                 } else if (ref === "box4") {
                     loadImageToTmp(179, 158);
-                } else if (ref === "box5" || ref === "footer") {
+                } else if (ref === "box5"){
                     loadImageToTmp(157, 14);
-                }
+                }else if (ref === "footer") {
+					loadImageToTmp(15, 14);
+				}
 
             } else if (currentIndex < previousIndex) {
                 if (ref === "box1") {
@@ -170,24 +172,6 @@ $(document).ready(function() {
 			setBkHeightForBoxes();
         }
     });
-
-
-//   // 背景要素の高さを調整する関数
-//   function setBkHeight() {
-//     // .contents 要素の高さを取得
-//     var contentHeight = document.querySelector('.contents').offsetHeight;
-
-//     // .bk 要素の高さを .contents 要素の高さと同じに設定
-//     document.querySelectorAll('.bk').forEach(function(bk) {
-//         bk.style.height = contentHeight + 'px';
-//     });
-// }
-
-// // load が完全に読み込まれた後に setBkHeight 関数を呼び出す
-// window.addEventListener('load', setBkHeight);
-
-// // ウィンドウのサイズが変更されたときに setBkHeight 関数を呼び出す
-// window.addEventListener('resize', setBkHeight);
 
 // box1とbox2の高さをbkに設定する関数
 function setBkHeightForBoxes() {
