@@ -559,7 +559,7 @@ footer ul img{
 	background-color: #fff;
 	color: #26A9D7;
 }
-.radius-content:hover
+.top-link:hover
 {
 	color: #EA0029;
 }
@@ -914,7 +914,7 @@ footer ul img{
 	letter-spacing: 0.75px;
 }
 
-.md-1 .ko-text, .ia-4 .ko-text, .ia-5 .ko-text, .sc-1 .ko-text, .sc-3 .ko-text, .sc-6 .ko-text, .oth-3 .ko-text, .oth-7 .ko-text, .ani-6 .ko-text, .oth-1 .ko-text
+.md-1 .ko-text, .ia-4 .ko-text, .ia-5 .ko-text, .sc-1 .ko-text, .sc-3 .ko-text, .sc-6 .ko-text, .oth-3 .ko-text, .oth-7 .ko-text, .ani-6 .ko-text, .oth-1 .ko-text, .id-3 .ko-text, .id-1 .ko-text
 {
 	text-align: center;
 }
@@ -924,11 +924,15 @@ footer ul img{
 	color: #EA0029;
 }
 
-.td-title .ko-title_long
+.td-title .ko-title, .ia-4 .ko-title
 {
 	padding: 21px 0 21px 8px;
 }
-
+.oth-10 .ko-title_frame
+{
+	max-width: 330px;
+	top: -6px;
+}
 /* 子ページアイコン */
 .ko-load
 {
