@@ -861,14 +861,6 @@ footer ul img{
 }
 
 /* 子ページ個別接点 */
-.all-day
-{
-	font-size: 15px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 21px; /* 140% */
-	letter-spacing: 1.5px;
-}
 .no-plan
 {
 	color: #A5A5A5;
@@ -924,9 +916,13 @@ footer ul img{
 	color: #EA0029;
 }
 
-.td-title .ko-title, .ia-4 .ko-title
+.td-title .ko-title, .ia-4 .ko-title, .ia-5 .ko-title
 {
 	padding: 21px 0 21px 8px;
+}
+.oth-10 .ko-title
+{
+	font-size: 16px;
 }
 .oth-10 .ko-title_frame
 {
