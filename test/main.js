@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const apngImages = document.querySelectorAll('.ko-title_frame');
-	const keyImages = document.querySelectorAll('.ko-key');
+	// const keyImages = document.querySelectorAll('.ko-key');
 
     apngImages.forEach(apngImage => {
         const apngSrc = apngImage.src;
@@ -61,14 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(apngImage);
     });
 
-    setTimeout(() => {
-        keyImages.forEach(keyImage => {
-            const keySrc = keyImage.src;
-			// keyImages.classList.add('key-up');
-            const keynewImg = keyImage.cloneNode();
-            keyImage.src = keySrc;
-        });
-    }, 2500);
+    // setTimeout(() => {
+    //     keyImages.forEach(keyImage => {
+    //         const keySrc = keyImage.src;
+	// 		// keyImages.classList.add('key-up');
+    //         const keynewImg = keyImage.cloneNode();
+    //         keyImage.src = keySrc;
+    //     });
+    // }, 2500);
 });
 
 

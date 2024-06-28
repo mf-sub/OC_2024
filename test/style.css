@@ -240,8 +240,8 @@ body
 
 /* ローディング */
 #loading {
-	-webkit-animation: byeShutter 3.8s forwards;
-	animation: byeShutter 3.8s forwards;
+	-webkit-animation: byeShutter 0.2s forwards;
+	animation: byeShutter 0.2s forwards;
 	    height: 100%;
     width: auto;
   }
