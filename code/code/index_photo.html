@@ -9,17 +9,17 @@
 <body>
 
 	<div class="shutter" id="loading">
-		<img src="images/load/load_photo.svg" alt="ロード中" class="shutter-video">
+		<!-- <img src="images/load/load_photo.svg" alt="ロード中" class="shutter-video"> -->
 	</div>
 
-	<!--ヘッダー-->
+	<!--header-->
 	<header class="header">
 		<div class="header__inner">
 			<nav class="header__nav nav" id="js-nav">
 				<ul class="nav__items nav-items" id="rink">
 					<li class="nav-items__item en-font"><a href="index.html">TOP</a></li>
 					<li class="nav-items__item"><a href="index_gd.html">グラフィック</a></li>
-					<li class="nav-items__item"><a href="index_photo.html">写真</a></li>
+					<li class="nav-items__item"><a href="index_photo.html" style="color: #EA0029;">写真</a></li>
 					<li class="nav-items__item"><a href="index_film.html">映画・映像</a></li>
 					<li class="nav-items__item"><a href="index_anime.html">アニメーション</a></li>
 					<li class="nav-items__item"><a href="index_md.html">メディア</a></li>
@@ -40,7 +40,7 @@
 	</header>
 
 
-	<!-- フッター -->
+	<!-- footer-->
 	<footer>
 		<div class="footer-inner">
 			<img src="images/tzu_logo.png" alt="ロゴ" class="tzu-logo">
@@ -57,24 +57,14 @@
 			<div class="oc">
 				<p>東京造形大学　OPEN CAMPUS</p>
 				<ul class="sns">
-					<li class="zokei_tww" ><a href="https://x.com/cs_fes_?s=20" target="_blank"><img src="images/icon_twitter.png" alt=""></a></li>
-					<li class="zokei_inst" ><a  href="https://www.instagram.com/cs_fes_/" target="_blank"><img src="images/icon_inst.png" alt=""></a></li>
+					<li class="zokei_tww" ><a href="https://x.com/TZUOPENCAMPUS" target="_blank"><img src="images/icon_twitter.png" alt=""></a></li>
+					<li class="zokei_inst" ><a  href="https://www.instagram.com/tzuoc/" target="_blank"><img src="images/icon_inst.png" alt=""></a></li>
 				</ul>
 			</div>
 		</div>
 		</div>
 	</footer>
 <main>
-	<!-- スクロールコンテンツを作成 -->
-   <!-- 固定されたビデオ -->
-   <div class="video-container">
-	<!-- <img src="images/この先、グラフィックデザイン.jpg" alt="メインビジュアル" class="fix"> -->
-	<!-- <video id="video-fix" muted> -->
-		<!-- <source src="images/main.mov" type="video/mp4"> -->
-		<!-- <source src="images/main_line.mp4" type="video/mp4">
-		あなたのブラウザはHTML5ビデオをサポートしていません。 -->
-	<!-- </video> -->
-	</div>
 
 	<div class="ko ko-con ph-1 center-content" id="ph-1">
 		<svg class="ko-svg-1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" fill="none">
@@ -94,7 +84,10 @@
 				</div>
 				</div>
 			<p class="ko-place radius-content en-font">PLACE 7-203</p>
-			<h3 class="ko-title radius-content">写真専攻領域<br>紹介・進学相談コーナー</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title radius-content">写真専攻領域<br>紹介・進学相談コーナー</h3>
+				<img src="images/title_frame_2.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -127,7 +120,10 @@
 				</div>
 			</div>
 			<p class="ko-place radius-content en-font">PLACE 7-103(地下スタジオ)</p>
-			<h3 class="ko-title radius-content">暗室現像ワークショップ</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title radius-content">暗室現像ワークショップ</h3>
+				<img src="images/title_frame.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -160,7 +156,10 @@
 				</div>
 			</div>
 			<p class="ko-place radius-content en-font">PLACE 7-102 スタジオ/CS-Lab前広場</p>
-			<h3 class="ko-title radius-content">写真専攻領域選抜写真展</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title radius-content">写真専攻領域選抜写真展</h3>
+				<img src="images/title_frame.png" alt="" class="ko-title_frame">
+		</div>
 		</div>
 	</div>
 
@@ -193,7 +192,10 @@
 					</div>
 				</div>
 			<p class="ko-place radius-content en-font">PLACE 7-201 地下スタジオ</p>
-			<h3 class="ko-title ko-title_long radius-content">スタジオ撮影体験</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title ko-title_long radius-content">スタジオ撮影体験</h3>
+				<img src="images/title_frame.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -225,9 +227,9 @@
 		<img src="images/icon/icon-photo.png" alt="icon" >
 	</div>
 </main>
-<!-- フェードイン	 -->
+<!-- fade-in	 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<!-- スクロール -->
+<!-- scroll -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js"></script>
     <script src="main.js"></script>

@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>東京造形大学オープンキャンパス2024 | この先、グラフィックデザイン</title>
+    <title>東京造形大学オープンキャンパス2024 | この先、グラフィックデザイン。</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 	<div class="shutter" id="loading">
-		<img src="images/load/load_gd.svg" alt="ロード中" class="shutter-video">
+		<!-- <img src="images/load/load_gd.svg" alt="ロード中" class="shutter-video"> -->
 	</div>
 
-	<!--ヘッダー-->
+	<!--header-->
 	<header class="header">
 		<div class="header__inner">
 			<nav class="header__nav nav" id="js-nav">
 				<ul class="nav__items nav-items" id="rink">
 					<li class="nav-items__item en-font"><a href="index.html">TOP</a></li>
-					<li class="nav-items__item"><a href="index_gd.html">グラフィック</a></li>
+					<li class="nav-items__item"><a href="index_gd.html" style="color: #EA0029;">グラフィック</a></li>
 					<li class="nav-items__item"><a href="index_photo.html">写真</a></li>
 					<li class="nav-items__item"><a href="index_film.html">映画・映像</a></li>
 					<li class="nav-items__item"><a href="index_anime.html">アニメーション</a></li>
@@ -40,7 +40,7 @@
 	</header>
 
 
-	<!-- フッター -->
+	<!-- footer-->
 	<footer>
 		<div class="footer-inner">
 			<img src="images/tzu_logo.png" alt="ロゴ" class="tzu-logo">
@@ -57,25 +57,14 @@
 			<div class="oc">
 				<p>東京造形大学　OPEN CAMPUS</p>
 				<ul class="sns">
-					<li class="zokei_tww" ><a href="https://x.com/cs_fes_?s=20" target="_blank"><img src="images/icon_twitter.png" alt=""></a></li>
-					<li class="zokei_inst" ><a  href="https://www.instagram.com/cs_fes_/" target="_blank"><img src="images/icon_inst.png" alt=""></a></li>
+					<li class="zokei_tww" ><a href="https://x.com/TZUOPENCAMPUS" target="_blank"><img src="images/icon_twitter.png" alt=""></a></li>
+					<li class="zokei_inst" ><a  href="https://www.instagram.com/tzuoc/" target="_blank"><img src="images/icon_inst.png" alt=""></a></li>
 				</ul>
 			</div>
 		</div>
 		</div>
 	</footer>
 <main>
-	<!-- スクロールコンテンツを作成 -->
-   <!-- 固定されたビデオ -->
-   <div class="video-container">
-	<!-- <img src="images/この先、グラフィックデザイン.jpg" alt="メインビジュアル" class="fix"> -->
-	<!-- <video id="video-fix" muted> -->
-		<!-- <source src="images/main.mov" type="video/mp4"> -->
-		<!-- <source src="images/main_line.mp4" type="video/mp4">
-		あなたのブラウザはHTML5ビデオをサポートしていません。 -->
-	<!-- </video> -->
-	</div>
-
 <div class="ko-inner">
 	<div class="ko ko-con gd-1 center-content" id="gd-1">
 		<svg class="ko-svg-1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" fill="none">
@@ -98,7 +87,10 @@
 				</div>
 			</div>
 			<p class="ko-place radius-content en-font">PLACE 8-205,206</p>
-			<h3 class="ko-title radius-content">グラフィックガチャガチャ</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title radius-content">グラフィックガチャガチャ</h3>
+				<img src="images/title_frame.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -140,7 +132,10 @@
 				</div>
 			</div>
 			<p class="ko-place radius-content en-font">PLACE 8-205,206</p>
-			<h3 class="ko-title radius-content">作品展示 (デザインの発展)</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title radius-content">作品展示 (デザインの発展)</h3>
+				<img src="images/title_frame.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -182,7 +177,10 @@
 				</div>
 			</div>
 			<p class="ko-place radius-content en-font">PLACE 8-205,206</p>
-			<h3 class="ko-title radius-content">作品展示 (デザインの基礎)</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title radius-content">作品展示 (デザインの基礎)</h3>
+				<img src="images/title_frame.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -223,7 +221,10 @@
 				</div>
 			</div>
 			<p class="ko-place radius-content en-font">PLACE 8-205</p>
-			<h3 class="ko-title radius-content">進学相談コーナー</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title radius-content">進学相談コーナー</h3>
+				<img src="images/title_frame.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -233,15 +234,6 @@
 				<path d="M22 13L12 3L2 13" stroke="#EA6F85" stroke-width="4"/>
 			</svg>
 			<p class="ko-space_text">進学相談</p>
-				<!-- <svg class="ko-svg-2" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.274L23.5 3.80786L45 25.274" stroke="#EA6F85" stroke-width="4"/>
-			</svg>
-			<svg class="ko-svg-3" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.2126L23.5 3.74646L45 25.2126" stroke="#E93554" stroke-width="4"/>
-			</svg>
-			<svg class="ko-svg-4" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.1543L23.5 3.68817L45 25.1543" stroke="#EA0029" stroke-width="4"/>
-			</svg> -->
 			<img src="images/load/load_gd.svg" alt="ロード" class="ko-svg_load">
 
 			<svg  class="ko-svg-5" xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16" fill="none">
@@ -265,7 +257,10 @@
 				</div>
 			</div>
 			<p class="ko-place radius-content en-font">PLACE 8-203</p>
-			<h3 class="ko-title ko-title_long radius-content">グラフィックデザイン専攻領域<br>紹介映像</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title ko-title_long radius-content">グラフィックデザイン専攻領域<br>紹介映像</h3>
+				<img src="images/title_frame_2.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -275,15 +270,6 @@
 				<path d="M22 13L12 3L2 13" stroke="#EA6F85" stroke-width="4"/>
 			</svg>
 			<p class="ko-space_text">専攻領域紹介</p>
-				<!-- <svg class="ko-svg-2" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.274L23.5 3.80786L45 25.274" stroke="#EA6F85" stroke-width="4"/>
-			</svg>
-			<svg class="ko-svg-3" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.2126L23.5 3.74646L45 25.2126" stroke="#E93554" stroke-width="4"/>
-			</svg>
-			<svg class="ko-svg-4" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.1543L23.5 3.68817L45 25.1543" stroke="#EA0029" stroke-width="4"/>
-			</svg> -->
 			<img src="images/load/load_gd.svg" alt="ロード" class="ko-svg_load">
 
 			<svg  class="ko-svg-5" xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16" fill="none">
@@ -309,7 +295,10 @@
 					</div>
 				</div>
 			<p class="ko-place radius-content en-font">PLACE 8-204</p>
-			<h3 class="ko-title ko-title_long radius-content">グラフィックデザイン専攻領域<br>トークショー</h3>
+			<div class="ko-title-div">
+				<h3 class="ko-title ko-title_long radius-content">グラフィックデザイン専攻領域<br>トークショー</h3>
+				<img src="images/title_frame_2.png" alt="" class="ko-title_frame">
+			</div>
 		</div>
 	</div>
 
@@ -319,15 +308,6 @@
 				<path d="M22 13L12 3L2 13" stroke="#EA6F85" stroke-width="4"/>
 			</svg>
 			<p class="ko-space_text">トークショー</p>
-				<!-- <svg class="ko-svg-2" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.274L23.5 3.80786L45 25.274" stroke="#EA6F85" stroke-width="4"/>
-			</svg>
-			<svg class="ko-svg-3" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.2126L23.5 3.74646L45 25.2126" stroke="#E93554" stroke-width="4"/>
-			</svg>
-			<svg class="ko-svg-4" xmlns="http://www.w3.org/2000/svg" width="47" height="27" viewBox="0 0 47 27" fill="none">
-				<path d="M2 25.1543L23.5 3.68817L45 25.1543" stroke="#EA0029" stroke-width="4"/>
-			</svg> -->
 			<img src="images/load/load_gd.svg" alt="ロード" class="ko-svg_load">
 
 			<svg  class="ko-svg-5" xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16" fill="none">
@@ -341,19 +321,14 @@
 		<img src="images/title_frame.png" alt="" class="ko-key">
 	</div>
 
-	<!-- トップページのメインビジュ-->
-	<!-- <div class="mainvisual" id="top">
-		<img src="images/mainvisual_completed.png" alt="SPメインビジュ" class="sp">
-	</div> -->
-
 	<div data-section-name="Area1" class="icon-hover ko-load">
 		<img src="images/icon/icon-GD.png" alt="icon" >
 	</div>
 </div>
 </main>
-<!-- フェードイン	 -->
+<!-- fade-in	 -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<!-- スクロール -->
+<!-- scroll -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js"></script>
     <script src="main.js"></script>
