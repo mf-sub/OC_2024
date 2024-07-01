@@ -6,7 +6,7 @@
 html{
   font-size: 12px;
   font-family:"Noto Sans JP",'Noto sans','Hiragino Kaku Gothic ProN','游明朝','Yu Mincho','YuMincho',serif;
-  color: #26A9D7;
+  color: #0080BB;
   /* background-color: #dfdfdf; */
 }
 
@@ -319,7 +319,7 @@ body
   /* ナビのリンク */
   .nav-items__item a {
 	text-decoration: none;
-	color: #26A9D7;
+	color: #0080BB;
 	width: 100%;
 	display: block;
 	text-align: right;
@@ -359,7 +359,7 @@ body
   .hamburger span {
 	width: 100%;
 	height: 3px;
-	background-color: #26A9D7;
+	background-color: #0080BB;
 	position: relative;
 	transition: ease .4s;
 	display: block;
@@ -555,9 +555,9 @@ footer ul img{
 	font-weight: 700;
 	line-height: normal;
 	border-radius: 60px;
-	border: 2px solid #26A9D7;
+	border: 2px solid #0080BB;
 	background-color: #fff;
-	color: #26A9D7;
+	color: #0080BB;
 }
 .top-link:hover
 {
@@ -610,7 +610,7 @@ footer ul img{
 }
 .major-icon a
 {
-	color: #26A9D7;
+	color: #0080BB;
 	text-decoration:none;
 }
 .major-icon li
@@ -644,7 +644,7 @@ footer ul img{
 /* Thema */
 .thema .sub-title
 {
-	color: #26A9D7;
+	color: #0080BB;
 	padding-left: 16px;
 	font-size: 23px;
 	line-height: normal;
@@ -745,7 +745,7 @@ footer ul img{
 {
 	display: inherit;
 	margin: 0 auto;
-	background-color: #26A9D7;
+	background-color: #0080BB;
 	margin-bottom: 20px;
 	color: #FFF;
 	font-size: 12px;
