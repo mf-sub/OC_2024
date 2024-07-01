@@ -987,12 +987,17 @@ footer ul img{
 }
 .oth-10 .ko-title
 {
-	font-size: 16px;
+	font-size: 15px;
 }
 .oth-10 .ko-title_frame, .oth-15 .ko-title_frame, .oth-1-2 .ko-title_frame
 {
 	top: 5px;
 }
+.oth-10 .ko-title_frame
+{
+	left: 6px;
+}
+
 
 /* 子ページアイコン */
 .ko-load
