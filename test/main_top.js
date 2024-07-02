@@ -22,6 +22,7 @@ var currentIndex = "";
 var previousIndex = "";
 
 function loadImageToTmp(start, end) {
+	console.log("start = ", start, "end = ", end);
     let imagesLoaded = 0;
 	if (start > end) {
     for (var i = start; i >= end; i--) {
@@ -111,7 +112,8 @@ $(document).ready(function() {
 	var sections = ["box1", "box2", "box3", "box4", "box5", "footer"];
 	$.scrollify.move("#box1");
 
-	$('a[href*="#"]').on('click', function() {
+	$('a[href*="#"]').on('click', function(event) {
+		event.preventDefault();
 	  // panelsを取得
 	//   window.scrollTo(0, document.body.scrollHeight);
 	  var panels = $.map($(".box").add("#footer"), function(element) {
@@ -122,11 +124,31 @@ $(document).ready(function() {
 	//   beforeScrollify(5, panels);
 	//   lastIndex = "box1";
 
-	  document.getElementById('js-nav').classList.remove('active');
-	  var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
-	  var pos = $(elmHash).offset().top;  //idの上部の距離を取得
-	  $('html, body').animate({scrollTop: pos}, 500);
+	document.getElementById('js-nav').classList.remove('active');
+	var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+	var pos = $(elmHash).offset().top;  //idの上部の距離を取得
+	$('html, body').animate({scrollTop: pos}, 500);
 	});
+
+	// $('a[href*="#"]').on('click', function(event) {
+    //     event.preventDefault(); // デフォルトのアンカージャンプを無効にする
+	// 	document.getElementById('js-nav').classList.remove('active');
+
+    //     var elmHash = this.hash; // ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+    //     var pos = $(elmHash).offset().top; // idの上部の距離を取得
+
+    //     // beforeScrollify関数の内容をここで直接呼び出す
+    //     var panels = $.map($(".box").add("#footer"), function(element) {
+    //         return $(element);
+    //     });
+
+    //     var i = sections.indexOf(elmHash.replace("#", ""));
+	// 	console.log("elmHash = ", elmHash, "var i = ", i);
+    //     beforeScrollify(i, panels);
+
+    //     // スクロールのアニメーションを実行
+    //     $('html, body').animate({scrollTop: pos}, 500);
+    // });
 
     $.scrollify({
         section: ".box",
@@ -139,10 +161,11 @@ $(document).ready(function() {
 	});
 	function beforeScrollify(i, panels) {
 		ref =$(panels[i]).attr("id");// 現在のセクションの id を取得する
+		console.log("ref = ", ref, "i", i);
 		currentIndex = sections.indexOf(ref);
 		previousIndex = sections.indexOf(lastIndex);
 
-		if(-1 === previousIndex || -1 === currentIndex) {
+		if( -1 === previousIndex || -1 === currentIndex) {
 			if (ref === "box1") {
 				loadImageToTmp(290, 289);
 			} else if (ref === "box5" || ref === "footer") {
