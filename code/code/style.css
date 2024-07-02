@@ -307,6 +307,7 @@ body
 
 
   .nav-items__item {
+	padding: 10px 0;
 	cursor: pointer;
 	position: relative;
 	height: 100%;
@@ -324,16 +325,15 @@ body
 	display: block;
 	text-align: right;
 	font-size: 15px;
-	margin-bottom: 	15px;
   }
   .nav-items__item a:hover {
 	text-decoration: underline;
 }
 
 
-  .nav-items__item:last-child a {
+  /* .nav-items__item:last-child a {
 	margin-bottom: 0;
-  }
+  } */
 
 
   /* ハンバーガーメニュー */
@@ -419,7 +419,6 @@ body
 	opacity: 1;
 }
 }
-
 /*==================================================
 アコーディオンのためのcss
 ===================================*/
@@ -446,6 +445,10 @@ body
     transition: all .5s ease;
 }
 
+.accordion-title a{
+	color: #0080BB;
+	text-decoration: none;
+}
 /*アイコンの＋と×*/
 .accordion-title::before,
 .accordion-title::after{
@@ -458,13 +461,13 @@ body
 }
 .accordion-title::before{
     top:48%;
-    right: 45px;
+    right: 55px;
     transform: rotate(0deg);
 
 }
 .accordion-title::after{
     top:48%;
-    right: 45px;
+    right: 55px;
     transform: rotate(90deg);
 }
 

@@ -111,16 +111,22 @@ $(document).ready(function() {
 	var sections = ["box1", "box2", "box3", "box4", "box5", "footer"];
 	$.scrollify.move("#box1");
 
-	$('#menu').on('click', function() {
+	$('a[href*="#"]').on('click', function(event) {
+		event.preventDefault();
 	  // panelsを取得
-	  window.scrollTo(0, document.body.scrollHeight);
+	//   window.scrollTo(0, document.body.scrollHeight);
 	  var panels = $.map($(".box").add("#footer"), function(element) {
 		return $(element);
 		});
 
 	  // before関数を手動で呼び出す
-	  beforeScrollify(5, panels);
-	  lastIndex = "box1";
+	//   beforeScrollify(5, panels);
+	//   lastIndex = "box1";
+
+	document.getElementById('js-nav').classList.remove('active');
+	var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+	var pos = $(elmHash).offset().top;  //idの上部の距離を取得
+	$('html, body').animate({scrollTop: pos}, 500);
 	});
 
     $.scrollify({

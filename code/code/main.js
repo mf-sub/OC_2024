@@ -59,47 +59,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         observer.observe(apngImage);
-    });
+	});
 
-    // setTimeout(() => {
-    //     keyImages.forEach(keyImage => {
-    //         const keySrc = keyImage.src;
-	// 		// keyImages.classList.add('key-up');
-    //         const keynewImg = keyImage.cloneNode();
-    //         keyImage.src = keySrc;
-    //     });
-    // }, 2500);
 });
-
-
 
 // テキストアニメーション
 // 動きのきっかけとなるアニメーションの名前を定義
 function fadeAnime(){
 
 //ふわっと動くきっかけのクラス名と動きのクラス名の設定
-$('.fadeUpTrigger').each(function(){ //fadeInUpTriggerというクラス名が
-	var elemPos = $(this).offset().top+800; //要素より、50px上の
+$('.fadeUpTrigger').each(function(){
+	var elemPos = $(this).offset().top+800;
 	var scroll = $(window).scrollTop();
 	var windowHeight = $(window).height();
 	if (scroll >= elemPos - windowHeight){
 	$(this).removeClass('fadeUp');
-	// 画面内に入ったらfadeInというクラス名を追記
 	}else{
 		$(this).addClass('fadeUp');
-	// 画面外に出たらfadeInというクラス名を外す
 	}
 	});
-
-}//ここまでふわっと動くきっかけのクラス名と動きのクラス名の設定
+}
 
 // 画面をスクロールをしたら動かしたい場合の記述
 	$(window).scroll(function (){
 	fadeAnime();/* アニメーション用の関数を呼ぶ*/
-	});// ここまで画面をスクロールをしたら動かしたい場合の記述
+	});
 
 // 画面が読み込まれたらすぐに動かしたい場合の記述
 	$(window).on('load', function(){
 	fadeAnime();/* アニメーション用の関数を呼ぶ*/
-	});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+	});
 
+	//アコーディオンをクリックした時の動作
+$('.accordion-title').on('click', function() {
+	var findElm = $(this).next(".accordion-cont");
+	$(findElm).slideToggle();
+
+	if($(this).hasClass('close')){
+		$(this).removeClass('close');
+	}else{//それ以外は
+		$(this).addClass('close');
+	}
+});
