@@ -1,16 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // img要素のsrc属性を変更
-    var imgElement = document.querySelector('img#shutter-video');
-    if (imgElement) {
-        imgElement.src = 'images/mv_opening.png';
-    }
+// document.addEventListener("DOMContentLoaded", function() {
+//     // img要素のsrc属性を変更
+//     var imgElement = document.querySelector('img#shutter-video');
+//     if (imgElement) {
+//         imgElement.src = 'images/mv_opening.png';
+//     }
 
-    // div要素にクラスを追加
-    var divElement = document.querySelector('div.shutter');
-    if (divElement) {
-        divElement.classList.add('shutter-up');
-    }
-});
+//     // div要素にクラスを追加
+//     var divElement = document.querySelector('div.shutter');
+//     if (divElement) {
+//         divElement.classList.add('shutter-up');
+//     }
+// });
 
 
 
@@ -63,13 +63,13 @@ function loadImageToTmp(start, end) {
 
 function startImageSwitch(start, end) {
     let currentIndex = start;
-	let interval = 18;
+	let interval = 15;
 
     if (start === 95 && end === 157){
-        interval = 6;
+        interval = 5;
     }
 	else if (start === 157 && end === 14){
-        interval = 12;
+        interval = 8;
     }
     const imgElement = document.getElementById('anim_img');
 
@@ -111,16 +111,21 @@ $(document).ready(function() {
 	var sections = ["box1", "box2", "box3", "box4", "box5", "footer"];
 	$.scrollify.move("#box1");
 
-	$('#menu').on('click', function() {
+	$('a[href*="#"]').on('click', function() {
 	  // panelsを取得
-	  window.scrollTo(0, document.body.scrollHeight);
+	//   window.scrollTo(0, document.body.scrollHeight);
 	  var panels = $.map($(".box").add("#footer"), function(element) {
 		return $(element);
 		});
 
 	  // before関数を手動で呼び出す
-	  beforeScrollify(5, panels);
-	  lastIndex = "box1";
+	//   beforeScrollify(5, panels);
+	//   lastIndex = "box1";
+
+	  document.getElementById('js-nav').classList.remove('active');
+	  var elmHash = this.hash; //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+	  var pos = $(elmHash).offset().top;  //idの上部の距離を取得
+	  $('html, body').animate({scrollTop: pos}, 500);
 	});
 
     $.scrollify({
@@ -133,49 +138,49 @@ $(document).ready(function() {
 		before: beforeScrollify,
 	});
 	function beforeScrollify(i, panels) {
-            ref =$(panels[i]).attr("id");// 現在のセクションの id を取得する
-            currentIndex = sections.indexOf(ref);
-            previousIndex = sections.indexOf(lastIndex);
+		ref =$(panels[i]).attr("id");// 現在のセクションの id を取得する
+		currentIndex = sections.indexOf(ref);
+		previousIndex = sections.indexOf(lastIndex);
 
-            if(-1 === previousIndex || -1 === currentIndex) {
-				if (ref === "box1") {
-					loadImageToTmp(290, 289);
-				} else if (ref === "box5" || ref === "footer") {
-					loadImageToTmp(15, 14);
-				}else if (ref === "box2") {
-                    loadImageToTmp(290, 233);
-                }
-            }
-			else if (currentIndex > previousIndex) {
-				if (ref === "box1") {
-					loadImageToTmp(290, 289);
-				}else if (ref === "box2") {
-                    loadImageToTmp(290, 233);
-                } else if (ref === "box3") {
-                    loadImageToTmp(232, 180);
-                } else if (ref === "box4") {
-                    loadImageToTmp(179, 158);
-                } else if (ref === "box5"){
-                    loadImageToTmp(157, 14);
-                }else if (ref === "footer") {
-					loadImageToTmp(15, 14);
-				}
+		if(-1 === previousIndex || -1 === currentIndex) {
+			if (ref === "box1") {
+				loadImageToTmp(290, 289);
+			} else if (ref === "box5" || ref === "footer") {
+				loadImageToTmp(15, 14);
+			}else if (ref === "box2") {
+				loadImageToTmp(290, 233);
+			}
+		}
+		else if (currentIndex > previousIndex) {
+			if (ref === "box1") {
+				loadImageToTmp(290, 289);
+			}else if (ref === "box2") {
+				loadImageToTmp(290, 233);
+			} else if (ref === "box3") {
+				loadImageToTmp(232, 180);
+			} else if (ref === "box4") {
+				loadImageToTmp(179, 158);
+			} else if (ref === "box5"){
+				loadImageToTmp(157, 14);
+			}else if (ref === "footer") {
+				loadImageToTmp(15, 14);
+			}
 
-            } else if (currentIndex < previousIndex) {
-                if (ref === "box1") {
-                    loadImageToTmp(233, 290);
-                } else if (ref === "box2") {
-                    loadImageToTmp(180, 232);
-                } else if (ref === "box3") {
-                    loadImageToTmp(158, 179);
-                } else if (ref === "box4") {
-                    loadImageToTmp(95, 157);
-                }
-            }
-			lastIndex = ref;
-			setBkHeightForBoxes();
-        }
-    });
+		} else if (currentIndex < previousIndex) {
+			if (ref === "box1") {
+				loadImageToTmp(233, 290);
+			} else if (ref === "box2") {
+				loadImageToTmp(180, 232);
+			} else if (ref === "box3") {
+				loadImageToTmp(158, 179);
+			} else if (ref === "box4") {
+				loadImageToTmp(95, 157);
+			}
+		}
+		lastIndex = ref;
+		setBkHeightForBoxes();
+	}
+});
 
 function setBkHeightForBoxes() {
     var box1Height = document.querySelector('#box1').scrollHeight;
